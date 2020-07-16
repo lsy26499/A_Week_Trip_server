@@ -1,7 +1,7 @@
 ---
 name: Task Card
 about: Task 카드를 작성할 때 사용하는 템플릿입니다.
-title: "[Task] 기능설명 - Sprint00"
+title: "[Task] Sprint00 - 기능설명"
 labels: Task
 assignees: ''
 
