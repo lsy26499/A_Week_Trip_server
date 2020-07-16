@@ -3,7 +3,7 @@ name: 'Stand Up Meeting '
 about: Stand Up Meeting 시 사용되는 템플릿입니다.
 title: "[Stand Up Meeting] 2020.00.00"
 labels: Stand Up
-assignees: idoasisay, lsy26499, Trisha-Park, Heo-JiSeong
+assignees: Heo-JiSeong, idoasisay, lsy26499, Trisha-Park
 
 ---
 

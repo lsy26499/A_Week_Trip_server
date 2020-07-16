@@ -1,7 +1,7 @@
 ---
 name: Bug Card
 about: 'Bug Card를 작성할 때 사용하는 템플릿입니다. '
-title: "[BUG] 버그내용 - Sprint00"
+title: "[BUG] Sprint00 - 버그내용"
 labels: bug
 assignees: ''
 
