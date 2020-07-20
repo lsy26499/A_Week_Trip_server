@@ -1,0 +1,42 @@
+{
+  "name": "a_week_trip-server",
+  "version": "1.0.0",
+  "description": "A week trip Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heo-JiSeong/A_week_trip-server.git"
+  },
+  "author": "AWT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Heo-JiSeong/A_week_trip-server/issues"
+  },
+  "homepage": "https://github.com/Heo-JiSeong/A_week_trip-server#readme",
+  "keywords": [
+    "A week trip Sever"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/node": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "helmet": "^3.23.3",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.9",
+    "mongoose": "^5.9.25",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.5.0",
+    "nodemon": "^2.0.4"
+  }
+}
