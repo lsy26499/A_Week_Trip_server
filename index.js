@@ -9,9 +9,15 @@ import bodyParser from 'body-parser';
 import mogran from 'morgan';
 import helmet from 'helmet';
 import dotenv from 'dotenv';
-import 'core-js';
 
+import 'core-js';
 import './db';
+import planRouter from './routes/palnRouter';
+import userRouter from './routes/userRouter';
+import stationRouter from './routes/stationRouter';
+import communityRouter from './routes/communityRouter';
+import commentRouter from './routes/commnetRouter';
+import bestplanRouter from './routes/bestpalnRouter';
 
 // config
 dotenv.config();
@@ -52,6 +58,14 @@ app.use(
         //})
     })
 );
+
+// router
+app.use('/plan', planRouter);
+app.use('/user', userRouter);
+app.use('/station', stationRouter);
+app.use('/community', communityRouter);
+app.use('/comment', commentRouter);
+app.use('/bestplan', bestplanRouter);
 
 // SERVER START
 app.listen(PORT, () => console.log(`✅ Listening on http://localhost:${PORT}`));
