@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const stationSchema = new Schema({
   station: String,
-  info: Array,
-  lodging: String,
-  tourism: String,
-  food: String,
+  info: String,
+  lodging: Array,
+  tourism: Array,
+  food: Array,
   created_at: { type: Date, required: true, default: Date.now },
   updated_at: { type: Date, required: true, default: Date.now },
 });
