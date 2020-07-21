@@ -4,5 +4,5 @@ import stationDetail from '../controller/stationController/stationDetail';
 
 export const stationRouter = express.Router();
 
-stationRouter.get('/', stationList); // /station
-stationRouter.get('/:id', stationDetail); // /station/:id
+// stationRouter.get('/', stationList); // /station
+// stationRouter.get('/:id', stationDetail); // /station/:id
