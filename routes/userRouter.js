@@ -7,10 +7,7 @@ import naver from '../controller/userController/naverLogin';
 
 export const userRouter = express.Router();
 
-userRouter.post('/google', google);
-
-userRouter.post('/kakao', kakao);
-
-userRouter.post('/naver', naver);
-
-userRouter.post('/logout', logout);
+// userRouter.post('/google', google);
+// userRouter.post('/kakao', kakao);
+// userRouter.post('/naver', naver);
+// userRouter.post('/logout', logout);
