@@ -31,9 +31,9 @@ app.use(cookieParser());
 // body-parser
 app.use(bodyParser.json());
 app.use(
-    bodyParser.urlencoded({
-        extended: false,
-    })
+  bodyParser.urlencoded({
+    extended: false,
+  })
 );
 // helmet
 app.use(helmet());
@@ -41,31 +41,31 @@ app.use(helmet());
 app.use(mogran('dev'));
 // cors
 app.use(
-    cors({
-        origin: ['http://localhost:3000'],
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        credentials: true,
-    })
+  cors({
+    origin: ['http://localhost:3000'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  })
 );
 // Express-session
 app.use(
-    session({
-        secret: '시크릿 뜻이 뭐야? 비밀 시크릿 뜻이 뭐냐니까? 비밀',
-        resave: false,
-        saveUninitialized: true,
-        //store: new CookieStore({
-        //  mongooseConnection: mongoose.connection
-        //})
-    })
+  session({
+    secret: '시크릿 뜻이 뭐야? 비밀 시크릿 뜻이 뭐냐니까? 비밀',
+    resave: false,
+    saveUninitialized: true,
+    //store: new CookieStore({
+    //  mongooseConnection: mongoose.connection
+    //})
+  })
 );
 
 // router
-app.use('/plan', planRouter);
-app.use('/user', userRouter);
-app.use('/station', stationRouter);
-app.use('/community', communityRouter);
-app.use('/comment', commentRouter);
-app.use('/bestplan', bestplanRouter);
+// app.use('/plan', planRouter);
+// app.use('/user', userRouter);
+// app.use('/station', stationRouter);
+// app.use('/community', communityRouter);
+// app.use('/comment', commentRouter);
+// app.use('/bestplan', bestplanRouter);
 
 // SERVER START
 app.listen(PORT, () => console.log(`✅ Listening on http://localhost:${PORT}`));
