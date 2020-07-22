@@ -2,13 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const stationSchema = new Schema({
-    station: String,
-    info: String,
-    lodging: Array,
+    station: { type: String, required: true },
+    info: { type: String, required: true },
+    lodging: { type: Array, required: true },
     tourism: Array,
     food: Array,
-    created_at: { type: Date, required: true, default: Date.now },
-    updated_at: { type: Date, required: true, default: Date.now },
 });
 
 const Station = mongoose.model('Station', stationSchema);
