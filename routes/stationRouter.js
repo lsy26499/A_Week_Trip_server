@@ -5,6 +5,6 @@ import stationDetail from '../controller/stationController/stationDetail';
 const stationRouter = express.Router();
 
 stationRouter.get('/', stationList); // /station
-// stationRouter.get('/:id', stationDetail); // /station/:id
+stationRouter.get('/:id', stationDetail); // /station/:id
 
 export default stationRouter;
