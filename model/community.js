@@ -2,15 +2,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const communitySchema = new Schema({
-    userId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    name: String,
-    title: String,
-    contents: String,
-    visit: Number,
-    created_at: { type: Date, required: true, default: Date.now },
-    updated_at: { type: Date, required: true, default: Date.now },
+    userId: Number, // test를 위한 userId
+    //userId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    postNumber: { type: Number, required: true },
+    name: { type: String, required: true },
+    title: { type: String, required: true },
+    article: { type: String, required: true },
+    created_at: { type: Date, default: Date.now },
+    updated_at: Date,
 });
 
-const Community = mongoose.model('Community', communitySchema);
+const Community = mongoose.model('Communitys', communitySchema);
 
 export default Community;
