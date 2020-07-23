@@ -6,7 +6,7 @@ const stationList = async (req, res) => {
             {},
             { _id: true, station: true, stationNumber: true }
         ).sort({ stationNumber: 1 });
-        res.send(stationList);
+        res.status(200).send(stationList);
     } catch (err) {
         console.log(err);
         res.send(err);
