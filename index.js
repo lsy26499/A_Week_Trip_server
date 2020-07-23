@@ -63,7 +63,7 @@ app.use(
 // app.use('/plan', planRouter);
 // app.use('/user', userRouter);
 app.use('/station', stationRouter);
-// app.use('/community', communityRouter);
+app.use('/community', communityRouter);
 // app.use('/comment', commentRouter);
 // app.use('/bestplan', bestplanRouter);
 
