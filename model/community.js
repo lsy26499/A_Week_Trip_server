@@ -10,6 +10,7 @@ const communitySchema = new Schema({
     article: { type: String, required: true },
     created_at: { type: Date, default: Date.now },
     updated_at: Date,
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
 });
 
 const Community = mongoose.model('Communitys', communitySchema);
