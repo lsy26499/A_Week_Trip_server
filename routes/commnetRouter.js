@@ -7,5 +7,7 @@ import commentList from '../controller/commentController/commentList';
 const commentRouter = express.Router();
 
 // commentRouter.get('/', commentList); //전체 불러오기
-// commentRouter.post('/', commentCreate); // 코멘트 작성하기
+commentRouter.post('/:id', commentCreate); // 코멘트 작성하기
 // commentRouter.delete('/:id', commentDelete); // 코멘트 하나 삭제하기
+
+module.exports = commentRouter;
