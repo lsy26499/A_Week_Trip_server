@@ -11,6 +11,7 @@ const postView = async (req, res) => {
                 name: true,
                 title: true,
                 article: true,
+                comments: true,
                 created_at: true,
             }
         );
