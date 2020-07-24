@@ -12,8 +12,7 @@ const communitySchema = new Schema({
     created_at: { type: Date, default: Date.now },
     updated_at: Date,
     comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
-});
-
+  
 communitySchema.plugin(autoIncrement.plugin, {
     model: 'Communitys',
     field: 'postNumber',
