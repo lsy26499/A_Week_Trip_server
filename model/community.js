@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const autoIncrement = require('mongoose-auto-increment');
 const Schema = mongoose.Schema;
 
 const communitySchema = new Schema({
@@ -10,6 +11,14 @@ const communitySchema = new Schema({
     article: { type: String, required: true },
     created_at: { type: Date, default: Date.now },
     updated_at: Date,
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
+});
+
+communitySchema.plugin(autoIncrement.plugin, {
+    model: 'Communitys',
+    field: 'postNumber',
+    startAt: 1,
+    increment: 1,
 });
 
 const Community = mongoose.model('Communitys', communitySchema);
