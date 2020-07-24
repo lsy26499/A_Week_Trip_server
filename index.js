@@ -60,12 +60,12 @@ app.use(
 );
 
 // router
-// app.use('/plan', planRouter);
-// app.use('/user', userRouter);
+app.use('/plan', planRouter);
+app.use('/user', userRouter);
 app.use('/station', stationRouter);
 app.use('/community', communityRouter);
-// app.use('/comment', commentRouter);
-// app.use('/bestplan', bestplanRouter);
+app.use('/comment', commentRouter);
+app.use('/bestplan', bestplanRouter);
 
 // SERVER START
 app.listen(PORT, () => console.log(`✅ Listening on http://localhost:${PORT}`));
