@@ -3,7 +3,7 @@ const autoIncrement = require('mongoose-auto-increment');
 const Schema = mongoose.Schema;
 
 const communitySchema = new Schema({
-    userId: Number, // test를 위한 userId
+    userId: Number, // test userId
     //userId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     postNumber: { type: Number, required: true },
     name: { type: String, required: true },
