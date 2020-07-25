@@ -1,27 +1,21 @@
 import Comment from '../../model/comment';
-import Community from '../../model/community';
 
 const commentCreate = async (req, res) => {
-    const { userId, name, comment, created_at } = req.body;
-    const { id } = req.params;
-
-    const commented = new Comment({
+    const { userId, name, comment, createdAt } = req.body;
+    const { communityId } = req.params;
+    const comments = new Comment({
         userId,
         name,
         comment,
-        created_at,
+        communityID: communityId,
+        createdAt,
     });
-
     try {
-        const community = await Community.findById(id);
-        community.comments.push(commented.id);
-        community.save();
-        res.status(201).send(commented);
+        await comments.save();
+        res.status(201).send(comments);
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
-    } finally {
-        res.end();
     }
 };
 
