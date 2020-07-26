@@ -9,6 +9,7 @@ const infoDetailSchema = new Schema({
     phone: Number,
     address: String,
 });
+
 const stationSchema = new Schema({
     station: { type: String, required: true },
     stationNumber: { type: Number, required: true },
@@ -16,13 +17,9 @@ const stationSchema = new Schema({
     lodging: [infoDetailSchema],
     tourism: [infoDetailSchema],
     food: [infoDetailSchema],
+    coord: { type: Object, required: true },
 });
 
 const Station = mongoose.model('Station', stationSchema);
 
 export default Station;
-
-/*
-    created_at: { type: Date, required: true, default: new Date().getTime() },
-    updated_at: { type: Date, required: true, default: new Date().getTime() },
-*/

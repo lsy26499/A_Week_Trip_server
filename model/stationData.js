@@ -4,6 +4,7 @@
 const stationData = {
     station: [
         {
+            coord: { lon: 35.1145855, lat: 129.039662 },
             station: '서울역',
             stationNumber: 1,
             info: '서울의 중심지입니다.',
