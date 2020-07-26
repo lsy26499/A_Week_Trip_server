@@ -20,6 +20,8 @@ const stationSchema = new Schema({
     coord: { type: Object, required: true },
 });
 
+stationSchema.index({ station: 'text' });
+
 const Station = mongoose.model('Station', stationSchema);
 
 export default Station;
