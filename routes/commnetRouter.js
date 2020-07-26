@@ -10,6 +10,6 @@ const commentRouter = express.Router();
 commentRouter.put('/:communityId/:commentId', commentEdit);
 commentRouter.get('/:communityId', commentList);
 commentRouter.post('/:communityId', commentCreate);
-commentRouter.delete('/:commentid', commentDelete);
+commentRouter.delete('/:commentId', commentDelete);
 
 module.exports = commentRouter;
