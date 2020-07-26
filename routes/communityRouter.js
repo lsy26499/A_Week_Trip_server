@@ -6,9 +6,10 @@ import postDelete from '../controller/communityController/postDelete';
 import postEdit from '../controller/communityController/postEdit';
 import postList from '../controller/communityController/postList';
 import postView from '../controller/communityController/postView';
-
+import postSearch from '../controller/communityController/postSearch';
 const communityRouter = express.Router();
 
+communityRouter.get('/search', postSearch); // 서치
 communityRouter.post('/', postCreate); // 생성
 communityRouter.delete('/:id', checkObjectId, postDelete); // 지움
 communityRouter.put('/:id', checkObjectId, postEdit); // 수정
