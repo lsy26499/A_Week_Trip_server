@@ -14,6 +14,8 @@ const communitySchema = new Schema({
     comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
 });
 
+communitySchema.index({ title: 'text', article: 'text' });
+
 communitySchema.plugin(autoIncrement.plugin, {
     model: 'Communitys',
     field: 'postNumber',
