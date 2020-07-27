@@ -1,13 +1,20 @@
 const mongoose = require('mongoose');
+const autoIncrement = require('mongoose-auto-increment');
 const Schema = mongoose.Schema;
 
-const planSchema = new Schema({
-    userId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-    info: Array,
-    created_at: { type: Date, required: true, default: Date.now },
-    updated_at: { type: Date, required: true, default: Date.now },
+const PlanSchema = new Schema({
+    userId: { type: String, required: true },
+    //userId: { type: Schema.Types.ObjectId, ref: 'User' },
+    list: Schema.Types.Mixed,
 });
 
-const Plan = mongoose.model('Plan', planSchema);
+PlanSchema.plugin(autoIncrement.plugin, {
+    model: 'Plan',
+    field: 'order',
+    startAt: 1,
+    increment: 1,
+});
+
+const Plan = mongoose.model('Plan', PlanSchema);
 
 export default Plan;
