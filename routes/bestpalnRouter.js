@@ -4,4 +4,6 @@ import courseList from '../controller/bestplanController/ courseList';
 
 const bestplanRouter = express.Router();
 
-//bestplanRouter.get('/', courseList);
+bestplanRouter.get('/', courseList);
+
+module.exports = bestplanRouter;
