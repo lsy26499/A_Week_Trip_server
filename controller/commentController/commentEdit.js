@@ -4,6 +4,11 @@ import Comment from '../../model/comment';
 const commentEidt = async (req, res) => {
     const { communityId, commentId } = req.params;
 
+    if (!ObjectId.isValid(commentId) && !ObjectId.isValid(communityId)) {
+        res.status(400).send('잘못된 Objcet Id입니다.');
+        return;
+    }
+
     try {
         const comment = await Comment.findOneAndUpdate(
             { communityID: communityId, _id: commentId },

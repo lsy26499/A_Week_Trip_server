@@ -5,6 +5,11 @@ import { ObjectID } from 'mongodb';
 const commentList = async (req, res) => {
     const { communityId } = req.params;
 
+    if (!ObjectId.isValid(communityId)) {
+        res.status(400).send('잘못된 Objcet Id입니다.');
+        return;
+    }
+
     try {
         const comment = await Comment.aggregate([
             { $match: { communityID: ObjectID(communityId) } },
