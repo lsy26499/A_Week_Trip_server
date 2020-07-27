@@ -4,13 +4,13 @@ import commentCreate from '../controller/commentController/commentCreate';
 import commentDelete from '../controller/commentController/commentDelete';
 import commentEdit from '../controller/commentController/commentEdit';
 import commentList from '../controller/commentController/commentList';
-import { checkObjectId } from '../middlewares';
+import { checkCommentForm } from '../middlewares';
 
 const commentRouter = express.Router();
 
-commentRouter.put('/:communityId/:commentId', commentEdit);
+commentRouter.put('/:communityId/:commentId', checkCommentForm, commentEdit);
 commentRouter.get('/:communityId', commentList);
-commentRouter.post('/:communityId', commentCreate);
+commentRouter.post('/:communityId', checkCommentForm, commentCreate);
 commentRouter.delete('/:commentId', commentDelete);
 
 module.exports = commentRouter;
