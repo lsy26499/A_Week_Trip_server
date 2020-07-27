@@ -33,7 +33,7 @@ const stationDetail = async (req, res) => {
 
         // 외부 API
         weatherIcon(lon, lat, (data) => {
-            const icon = await data.weather[0].icon;
+            const icon = data.weather[0].icon;
 
             res.status(200).send({
                 stationDeatil: stationDetail,

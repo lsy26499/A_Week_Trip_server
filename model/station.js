@@ -17,7 +17,7 @@ const stationSchema = new Schema({
     lodging: [infoDetailSchema],
     tourism: [infoDetailSchema],
     food: [infoDetailSchema],
-    coord: { any: Object, required: true },
+    coord: { any: Object },
 });
 
 const Station = mongoose.model('Station', stationSchema);
