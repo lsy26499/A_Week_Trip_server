@@ -1,5 +1,7 @@
 import Comment from '../../model/comment';
 import { ObjectID } from 'mongodb';
+import mongoose from 'mongoose';
+const { ObjectId } = mongoose.Types;
 
 //GET
 const commentList = async (req, res) => {

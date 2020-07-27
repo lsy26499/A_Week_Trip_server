@@ -1,5 +1,5 @@
 import express from 'express';
-import { checkObjectId } from '../middlewares';
+import { checkObjectId, checkQuery, checkCommunityForm } from '../middlewares';
 
 import postCreate from '../controller/communityController/postCreate';
 import postDelete from '../controller/communityController/postDelete';
@@ -9,10 +9,10 @@ import postView from '../controller/communityController/postView';
 import postSearch from '../controller/communityController/postSearch';
 const communityRouter = express.Router();
 
-communityRouter.get('/search', postSearch); // 서치
-communityRouter.post('/', postCreate); // 생성
+communityRouter.get('/search', checkQuery, postSearch); // 서치
+communityRouter.post('/', checkCommunityForm, postCreate); // 생성
 communityRouter.delete('/:id', checkObjectId, postDelete); // 지움
-communityRouter.put('/:id', checkObjectId, postEdit); // 수정
+communityRouter.put('/:id', checkObjectId, checkCommunityForm, postEdit); // 수정
 communityRouter.get('/', postList); // 전체 보여 주기
 communityRouter.get('/:id', checkObjectId, postView); // 하나만 보여 주기
 

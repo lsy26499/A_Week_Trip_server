@@ -10,7 +10,7 @@ const commentSchema = new Schema(
             require: true,
             validate: [
                 function (comment) {
-                    return comment.trim().length < 0;
+                    return comment.trim().length > 0;
                 },
                 '코멘트를 입력해야 합니다.',
             ],
