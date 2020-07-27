@@ -1,5 +1,6 @@
 import Comment from '../../model/comment';
 
+//PUT secret 변경 유무 필수
 const commentEidt = async (req, res) => {
     const { communityId, commentId } = req.params;
 
@@ -20,6 +21,8 @@ const commentEidt = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
+    } finally {
+        res.end();
     }
 };
 

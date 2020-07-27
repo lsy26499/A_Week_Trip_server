@@ -4,16 +4,24 @@ const Schema = mongoose.Schema;
 const commentSchema = new Schema(
     {
         userId: { type: Number, require: true },
-        //userId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-        name: String,
-        comment: String,
+        name: { type: String, require: true },
+        comment: {
+            type: String,
+            require: true,
+            validate: [
+                function (comment) {
+                    return comment.trim().length < 0;
+                },
+                '코멘트를 입력해야 합니다.',
+            ],
+        },
         communityID: { type: Schema.Types.ObjectId, ref: 'Community' },
         createdAt: {
             type: Date,
             required: true,
             default: Date.now,
         },
-        //created_at: { type: Date, required: true, default: date },
+        secret: { type: Boolean, require: true },
     },
     { timestamps: { createdAt: 'createdAt' } }
 );

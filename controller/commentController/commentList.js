@@ -1,11 +1,11 @@
 import Comment from '../../model/comment';
 import { ObjectID } from 'mongodb';
 
+//GET
 const commentList = async (req, res) => {
     const { communityId } = req.params;
 
     try {
-        //const comment = await Comment.find({ communityID: communityId });
         const comment = await Comment.aggregate([
             { $match: { communityID: ObjectID(communityId) } },
             {
@@ -13,7 +13,6 @@ const commentList = async (req, res) => {
                     userId: 1,
                     name: 1,
                     comment: 1,
-                    communityID: 1,
                     createdAt: {
                         $dateToString: {
                             format: '%Y-%m-%d %H:%M',
@@ -28,6 +27,7 @@ const commentList = async (req, res) => {
                             timezone: 'Japan',
                         },
                     },
+                    secret: 1,
                 },
             },
         ]);
@@ -35,6 +35,8 @@ const commentList = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
+    } finally {
+        res.end();
     }
 };
 
