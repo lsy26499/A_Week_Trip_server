@@ -10,6 +10,8 @@ const stationList = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.send(err);
+    } finally {
+        res.end();
     }
 };
 

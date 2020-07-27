@@ -17,7 +17,7 @@ const stationSchema = new Schema({
     lodging: [infoDetailSchema],
     tourism: [infoDetailSchema],
     food: [infoDetailSchema],
-    coord: { type: Object, required: true },
+    coord: { any: Object },
 });
 
 stationSchema.index({ station: 'text' });
