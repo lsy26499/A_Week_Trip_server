@@ -4,6 +4,7 @@ import request from 'request';
 
 dotenv.config();
 
+// 외부 API 받는 함수
 const weatherIcon = (lat, lon, callback) => {
     request(
         `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=` +
@@ -18,8 +19,10 @@ const weatherIcon = (lat, lon, callback) => {
     );
 };
 
+//GET
 const stationDetail = async (req, res) => {
     const { id } = req.params;
+
     try {
         const stationDetail = await Station.find({ _id: id });
         if (!stationDetail || !id) {
@@ -28,8 +31,9 @@ const stationDetail = async (req, res) => {
         }
         const { lon, lat } = await stationDetail[0].coord;
 
+        // 외부 API
         weatherIcon(lon, lat, (data) => {
-            const icon = data.weather[0].icon;
+            const icon = await data.weather[0].icon;
 
             res.status(200).send({
                 stationDeatil: stationDetail,
@@ -39,6 +43,8 @@ const stationDetail = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.send(err);
+    } finally {
+        res.end();
     }
 };
 
