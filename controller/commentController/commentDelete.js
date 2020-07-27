@@ -1,4 +1,6 @@
 import Comment from '../../model/comment';
+import mongoose from 'mongoose';
+const { ObjectId } = mongoose.Types;
 
 const commentDelete = async (req, res) => {
     const { commentId } = req.params;

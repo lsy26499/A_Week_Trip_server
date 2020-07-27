@@ -1,10 +1,12 @@
 import Comment from '../../model/comment';
+import mongoose from 'mongoose';
+const { ObjectId } = mongoose.Types;
 
 //PUT secret 변경 유무 필수
 const commentEidt = async (req, res) => {
     const { communityId, commentId } = req.params;
 
-    if (!ObjectId.isValid(commentId) && !ObjectId.isValid(communityId)) {
+    if (!ObjectId.isValid(commentId) || !ObjectId.isValid(communityId)) {
         res.status(400).send('잘못된 Objcet Id입니다.');
         return;
     }

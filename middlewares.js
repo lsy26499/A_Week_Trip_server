@@ -10,3 +10,12 @@ export const checkObjectId = (req, res, next) => {
     }
     return next();
 };
+
+export const checkQuery = (req, res, next) => {
+    const { content } = req.query;
+    if (!content) {
+        res.status(400).send('검색 값이 비어 있습니다.');
+        return;
+    }
+    return next();
+};

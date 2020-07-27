@@ -4,6 +4,7 @@ import commentCreate from '../controller/commentController/commentCreate';
 import commentDelete from '../controller/commentController/commentDelete';
 import commentEdit from '../controller/commentController/commentEdit';
 import commentList from '../controller/commentController/commentList';
+import { checkObjectId } from '../middlewares';
 
 const commentRouter = express.Router();
 
