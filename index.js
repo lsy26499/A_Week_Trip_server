@@ -12,7 +12,7 @@ import dotenv from 'dotenv';
 
 import 'core-js';
 import './db';
-import planRouter from './routes/palnRouter';
+import planRouter from './routes/planRouter';
 import userRouter from './routes/userRouter';
 import stationRouter from './routes/stationRouter';
 import communityRouter from './routes/communityRouter';
