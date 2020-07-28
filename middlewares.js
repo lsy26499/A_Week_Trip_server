@@ -19,10 +19,11 @@ export const checkCommentForm = async (req, res, next) => {
 
 export const checkCommunityForm = async (req, res, next) => {
     //TODO: UserId에 대한 유효성 검사를 해 주세요.
-
     await check('name').notEmpty().isString().run(req);
     await check('title').isLength({ min: 1, max: 30 }).isString().run(req);
     await check('article').exists().run(req);
+
+    const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
         return res.status(400).send('Post Form을 올바르게 작성해 주세요.');
@@ -40,6 +41,8 @@ export const checkStationForm = async (req, res, next) => {
     await check('lodging').exists().isArray().run(req);
     await check('food').exists().isArray().run(req);
     await check('tourism').exists().isArray().run(req);
+
+    const errors = validationResult(req);
 
     if (!errors.isEmpty()) {
         return res.status(400).send('Station Form을 올바르게 작성해 주세요.');
