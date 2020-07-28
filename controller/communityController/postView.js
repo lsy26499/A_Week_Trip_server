@@ -1,12 +1,23 @@
 import Community from '../../model/community';
+import { post } from 'request';
+import { ObjectID } from 'mongodb';
 
 const postView = async (req, res) => {
-    const { _id } = req.params;
+    const { id } = req.params;
+
     try {
+        const view = await Community.findOne({ _id: id });
+
+        if (view) {
+            view.view++;
+            view.save();
+        }
+
         const postView = await Community.aggregate([
-            { $match: { _id: _id } },
+            { $match: { _id: ObjectID(id) } },
             {
                 $project: {
+                    view: 1,
                     _id: 1,
                     userId: 1,
                     name: 1,
