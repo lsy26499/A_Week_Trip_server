@@ -1,19 +1,13 @@
 import Community from '../../model/community';
-import dayjs from 'dayjs';
 
 const postCreate = async (req, res) => {
-    const { userId, name, title, article, create_at } = req.body;
-    console.log(req.body);
-    console.log(userId, name, title, article);
+    const { userId, name, title, article } = req.body;
     const postCreate = new Community({
         userId,
         name,
         title,
         article,
-        create_at,
-        comments: [],
     });
-
     try {
         if (userId) {
             const newPost = await postCreate.save();
