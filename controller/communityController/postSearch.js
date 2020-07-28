@@ -10,7 +10,9 @@ const postSearch = async (req, res) => {
     ];
 
     try {
-        const community = await Community.find({ $or: options });
+        const community = await Community.find({ $or: options }).sort({
+            order: -1,
+        });
         if (!community) {
             console.log('검색 옵션이 없습니다.');
             res.status(400).send('검색 옵션이 없습니다.');
