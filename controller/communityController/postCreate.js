@@ -15,6 +15,8 @@ const postCreate = async (req, res) => {
         } else res.status(400).send('Create Failed');
     } catch (err) {
         res.status(500).send(err);
+    } finally {
+        res.end();
     }
 };
 

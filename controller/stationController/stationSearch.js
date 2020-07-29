@@ -7,6 +7,8 @@ const stationSearch = async (req, res) => {
         res.status(200).send(station);
     } catch (err) {
         res.status(500).send(err);
+    } finally {
+        res.end();
     }
 };
 
