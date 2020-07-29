@@ -7,8 +7,8 @@ import { checkObjectId } from '../middlewares';
 
 const planRouter = express.Router();
 
-// planRouter.post('/', taskCreate);
-// planRouter.put('/', taskEdit);
+planRouter.post('/', taskCreate);
+planRouter.put('/:id', checkObjectId, taskEdit);
 // planRouter.delete('/', taskDelete);
 planRouter.get('/:id', checkObjectId, taskList);
 
