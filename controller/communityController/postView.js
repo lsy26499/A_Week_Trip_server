@@ -43,6 +43,8 @@ const postView = async (req, res) => {
         res.status(200).send(postView);
     } catch (err) {
         res.status(500).send(err);
+    } finally {
+        res.end();
     }
 };
 
