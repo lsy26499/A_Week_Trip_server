@@ -11,7 +11,7 @@ const communityRouter = express.Router();
 
 communityRouter.get('/search', checkQuery, postSearch); // 서치
 communityRouter.post('/', checkCommunityForm, postCreate); // 생성
-communityRouter.delete('/:id', checkObjectId, postDelete); // 지움
+communityRouter.delete('/:id/:userId', checkObjectId, postDelete); // 지움
 communityRouter.put('/:id', checkObjectId, checkCommunityForm, postEdit); // 수정
 communityRouter.get('/', postList); // 전체 보여 주기
 communityRouter.get('/:id', checkObjectId, postView); // 하나만 보여 주기
