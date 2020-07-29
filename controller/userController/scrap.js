@@ -23,12 +23,24 @@ const scrap = async (req, res) => {
 
         //만약에 유저 안의 scrapPosts에 커뮤니티 아이디가 있으면?
         if (await User.findOne({ userId: userId, scrapPosts: communityId })) {
-            user.scrapPosts.pop({ _id: ObjectID(communityId) });
-            user.save();
-            //커뮤니티 아이디가 없으면?
+            await User.update(
+                { userId: userId, scrapPosts: communityId },
+                {
+                    $pull: { scrapPosts: ObjectID(communityId) },
+                },
+                { new: true }
+            );
+            console.log('아이디가 있습니다. 아이디를 삭제합니다.');
         } else {
-            user.scrapPosts.push({ _id: ObjectID(communityId) });
-            user.save();
+            //커뮤니티 아이디가 없으면?
+            console.log('아이디가 없습니다. 아이디를 추가합니다.');
+            await User.update(
+                { userId: userId },
+                {
+                    $push: { scrapPosts: ObjectID(communityId) },
+                },
+                { new: true }
+            );
         }
         res.status(201).send(user);
     } catch (error) {
