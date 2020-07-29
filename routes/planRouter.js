@@ -9,7 +9,7 @@ const planRouter = express.Router();
 
 planRouter.post('/', taskCreate);
 planRouter.put('/:id', checkObjectId, taskEdit);
-// planRouter.delete('/', taskDelete);
+planRouter.delete('/:id', checkObjectId, taskDelete);
 planRouter.get('/:id', checkObjectId, taskList);
 
 export default planRouter;
