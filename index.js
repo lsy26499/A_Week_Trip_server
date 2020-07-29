@@ -60,7 +60,6 @@ app.use(
 );
 
 // router
-// TODO: 혹시 이것을 누구라도 보신다면 cleanUp을 할 때 모든 라우터에 finally{res.end()}를 채워 주세요!
 // TODO: 컨트롤러 상단에 주석으로 설명을 작성해도 좋을 것 같습니다.
 // TODO: user가 구현이 되면 전체적으로 user 인증 검증을 해 주세요!
 /**
