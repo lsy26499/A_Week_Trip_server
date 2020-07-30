@@ -1,7 +1,37 @@
 import mongoose from 'mongoose';
+import multer from 'multer';
+import multerS3 from 'multer-s3';
+import aws from 'aws-sdk';
+
 const { ObjectId } = mongoose.Types;
 const { check, validationResult } = require('express-validator');
 
+//? multer
+const s3 = new aws.S3({
+    //FIXME: 진짜 aws에 연결하게 되면 바꿔 주세요!
+    secretAccessKey: '',
+    accessKeyId: '',
+    region: 'ap-northeast-1',
+});
+
+const multerUpload = multer({
+    storage: multerS3({
+        s3,
+        acl: 'public-read',
+        bucket: 'AWT/image', //! bucket은 임시입니다! image라는 폴더에 들어갈 것입니다.
+        // FIXME: 버켓 이름을 수정해 주세요!
+        key: function (req, file, cb) {
+            let extension = path.extname(file.originalname);
+            cb(null, Date.now().toString() + extension);
+        },
+        limits: { fileSize: 5 * 1024 * 1024 },
+    }),
+});
+
+//! TODO: 이미지 폼 이름: imageURL, API POST 할 때도 imageURL로 보내 주세요
+export const uploadImage = multerUpload.single('imageURL');
+
+//? middlewares
 export const checkCommentForm = async (req, res, next) => {
     // TODO: userId에 대한 유효성을 검사해 주세요.
 

@@ -6,6 +6,7 @@ const communitySchema = new Schema(
     {
         userId: Number, // test userId
         //userId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+        imageURL: { type: String, required: true, default: '' },
         order: { type: Number, required: true },
         name: { type: String, required: true },
         title: { type: String, required: true },
