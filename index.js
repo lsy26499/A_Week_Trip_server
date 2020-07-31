@@ -17,7 +17,7 @@ import userRouter from './routes/userRouter';
 import stationRouter from './routes/stationRouter';
 import communityRouter from './routes/communityRouter';
 import commentRouter from './routes/commnetRouter';
-import bestplanRouter from './routes/bestpalnRouter';
+import bestPlanRouter from './routes/bestPlanRouter';
 
 // config
 dotenv.config();
@@ -73,7 +73,7 @@ app.use('/user', userRouter);
 app.use('/station', stationRouter);
 app.use('/community', communityRouter);
 app.use('/comment', commentRouter);
-app.use('/bestplan', bestplanRouter);
+app.use('/bestplan', bestPlanRouter);
 
 // SERVER START
 app.listen(PORT, () => console.log(`✅ Listening on http://localhost:${PORT}`));
