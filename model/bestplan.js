@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const bestplanSchema = new Schema({
-    courseList: Array,
-    created_at: { type: Date, required: true, default: Date.now },
-    updated_at: { type: Date, required: true, default: Date.now },
+const bestPlanSchema = new Schema({
+    num: Number,
+    list: Array,
+    plan: Array,
 });
 
-const Bestplan = mongoose.model('Bestplan', bestplanSchema);
+const bestPlan = mongoose.model('BestPlan', bestPlanSchema);
 
-export default Bestplan;
+export default bestPlan;
