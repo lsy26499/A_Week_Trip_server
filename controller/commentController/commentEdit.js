@@ -2,7 +2,31 @@ import Comment from '../../model/comment';
 import mongoose from 'mongoose';
 const { ObjectId } = mongoose.Types;
 
-//PUT secret 변경 유무 필수
+/**
+ * @api {put} /comment/:communityId/:commentId 코멘트 수정
+ * @apiDescription 기존의 코멘트를 수정합니다.
+ * @apiName 코멘트 수정
+ * @apiGroup comment
+ *
+ * @param {ObjectID} communityId 해당 커뮤니티 오브젝트 아이디
+ * @param {ObjectID} commentId 해당 댓글 오브젝트 아이디
+ *
+ * @apiSuccess {Number} 201 댓글 수정 성공
+ * @apiSuccessExample {json} Success-Response:
+ *       HTTP/1.1 201
+ *  {
+ *      "userId": 1,
+ *      "name": "이유정",
+ *      "comment": "댓글 수정합니다.",
+ *      "communityID": communityId,
+ *      "secret": true,
+ *      "createdAt": 2020-07-28T11:22:45.401+00:00,
+ *      "updatedAt": 2020-07-29T11:23:11.401+00:00
+ *  }
+ * @apiError {Number} 400 커뮤니티 아이디나 댓글 아이디가 없음
+ * @apiError {Number} 500 댓글 수정 실패
+ */
+
 const commentEidt = async (req, res) => {
     const { communityId, commentId } = req.params;
 

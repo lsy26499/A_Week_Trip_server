@@ -3,7 +3,39 @@ import { ObjectID } from 'mongodb';
 import mongoose from 'mongoose';
 const { ObjectId } = mongoose.Types;
 
-//GET
+/**
+ * @api {get} /comment/:communityId 코멘트 리스트
+ * @apiDescription 게시글의 코멘트 리스트를 불러옵니다.
+ * @apiName 코멘트 리스트
+ * @apiGroup comment
+ *
+ * @param {ObjectID} communityId 해당 커뮤니티 오브젝트 아이디
+ *
+ * @apiSuccess {Number} 201 코멘트 리스트 불러오기 성공
+ * @apiSuccessExample {json} Success-Response:
+ *       HTTP/1.1 200
+ *  [
+ *      {
+ *          "userId": 1,
+ *          "name": "이유정",
+ *          "comment": "첫 번째 댓글입니다.",
+ *          "createdAt": 2020-08-01,
+ *          "updatedAt": 2020-08-01,
+ *          "secret": false
+ *      },
+ *      {
+ *          "userId": 2,
+ *          "name": "김유정",
+ *          "comment": "두 번째 댓글입니다.",
+ *          "createdAt": 2020-08-01,
+ *          "updatedAt": 2020-08-01,
+ *          "secret": true
+ *      }
+ *  ]
+ * @apiError {Number} 400 커뮤니티 아이디가 없음
+ * @apiError {Number} 500 코멘트 리스트 요청 실패
+ */
+
 const commentList = async (req, res) => {
     const { communityId } = req.params;
 

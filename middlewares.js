@@ -32,6 +32,18 @@ const multerUpload = multer({
 export const uploadImage = multerUpload.single('imageURL');
 
 //? middlewares
+
+//! 만약에 이 미들웨어 때문에 작동이 되지 않는다면 주석 처리해 주세요.
+export const checkPlanForm = async (req, res, next) => {
+    await check('list').exists().run(req);
+    const errors = validationResult(req);
+
+    if (!errors.isEmpty()) {
+        return res.status(400).send('Plan을 채워 주세요.');
+    }
+    return next();
+};
+
 export const checkCommentForm = async (req, res, next) => {
     // TODO: userId에 대한 유효성을 검사해 주세요.
 
