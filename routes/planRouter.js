@@ -1,15 +1,15 @@
 import express from 'express';
-import taskCreate from '../controller/planController/taskCreate';
-import taskDelete from '../controller/planController/taskDelete';
-import taskEdit from '../controller/planController/taskEdit';
-import taskList from '../controller/planController/taskList';
+import planCreate from '../controller/planController/planCreate';
+import planDelete from '../controller/planController/planDelete';
+import planEdit from '../controller/planController/planEdit';
+import planList from '../controller/planController/planList';
 import { checkObjectId, checkPlanForm } from '../middlewares';
 
 const planRouter = express.Router();
 
-planRouter.post('/', checkPlanForm, taskCreate);
-planRouter.put('/:id', checkObjectId, taskEdit);
-planRouter.delete('/:id', checkObjectId, taskDelete);
-planRouter.get('/:id', checkObjectId, taskList);
+planRouter.post('/', checkPlanForm, planCreate);
+planRouter.put('/:id', checkObjectId, planEdit);
+planRouter.delete('/:id', checkObjectId, planDelete);
+planRouter.get('/:id', checkObjectId, planList);
 
 export default planRouter;
