@@ -6,7 +6,7 @@ const planList = async (req, res) => {
         if (userId) {
             const planList = await Plan.find({ userId: userId });
             res.status(200).send(planList);
-        } else if (!id) {
+        } else if (!userId) {
             res.status(404).send('계획이 없습니다.');
         }
     } catch (err) {

@@ -10,6 +10,6 @@ const planRouter = express.Router();
 planRouter.post('/', checkPlanForm, planCreate);
 planRouter.put('/:id', checkObjectId, planEdit);
 planRouter.delete('/:id', checkObjectId, planDelete);
-planRouter.get('/:id', checkObjectId, planList);
+planRouter.get('/:userId', planList);
 
 export default planRouter;
