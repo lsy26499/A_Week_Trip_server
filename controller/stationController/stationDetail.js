@@ -6,7 +6,6 @@ import cheerio from 'cheerio';
 import { ObjectID } from 'mongodb';
 dotenv.config();
 
-
 // 날씨 API
 const weatherIcon = (lat, lon) => {
     return new Promise((resolve) => {
@@ -20,7 +19,6 @@ const weatherIcon = (lat, lon) => {
                     const icon = await obj.weather[0].icon;
                     resolve(icon);
                 }
-
             }
         );
     });
@@ -55,6 +53,9 @@ const getInfo = async (region, subject) => {
                                     .text(),
                                 date: $(this).find('dd.txt_inline').text(),
                                 href: $(this).find('dl dt a').attr('href'),
+                                thumb: $(this)
+                                    .find('img.sh_blog_thumbnail')
+                                    .attr('src'),
                             };
                         });
 
