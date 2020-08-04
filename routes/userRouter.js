@@ -1,7 +1,6 @@
 import express from 'express';
 
 import google from '../controller/userController/googleLogin';
-import kakao from '../controller/userController/kakaoLogin';
 import logout from '../controller/userController/logout';
 import facebook from '../controller/userController/FBLogin';
 import myPosts from '../controller/userController/myPosts';
@@ -15,9 +14,8 @@ import {
 const userRouter = express.Router();
 
 userRouter.post('/facebook', facebook);
-// userRouter.post('/kakao', kakao);
 // userRouter.post('/naver', naver);
-// userRouter.post('/logout', logout);
+userRouter.post('/logout', logout);
 userRouter.put('/scrap/:userId/:communityId', scrap);
 userRouter.get('/myPosts/:id', myPosts);
 userRouter.get('/scrap/:id', scrapList);
