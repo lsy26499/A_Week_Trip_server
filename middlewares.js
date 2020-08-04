@@ -12,9 +12,8 @@ const { ObjectId } = mongoose.Types;
 const { check, validationResult } = require('express-validator');
 
 export const checkedLogin = async (req, res, next) => {
-    const { user } = req.body;
-    if (!user) {
-        res.status(401);
+    if (!req.body.user) {
+        res.status(401).send('로그인을 해 주세요.');
         return;
     }
     next();
