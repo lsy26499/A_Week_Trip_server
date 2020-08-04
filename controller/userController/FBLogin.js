@@ -49,8 +49,8 @@ const facebook = async (req, res) => {
                 } else {
                     res.status(201).json({
                         type: true,
-                        userId: user.userId,
-                        name: user.name,
+                        name: savedUser.name,
+                        userId: savedUser.userId,
                         token: savedUser.jsonWebToken,
                     });
                 }

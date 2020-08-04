@@ -21,31 +21,39 @@ export const checkedLogin = async (req, res, next) => {
 };
 
 //! jwt middleware는 베타 테스트 중입니다!
-export const jwtMiddleware = async (req, res, next) => {
-    const { token } = req.body;
-    if (!token) next();
-
+export const jwtParser = async (req, res, next) => {
+    const { authorization } = req.headers;
     try {
-        //토큰 찾기
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        console.log(decoded);
-        const now = Math.floor(Date.now() / 1000);
+        if (!authorization) {
+            return next();
+        } else {
+            //토큰 찾기
+            const decoded = jwt.verify(authorization, process.env.JWT_SECRET);
+            //console.log(decoded);
+            const now = Math.floor(Date.now() / 1000);
 
-        //토큰 재발급
-        if (decoded.exp - now < 60 * 60 * 24 * 3.5) {
-            const user = await User.findById(decoded._id);
-            user.jsonWebToken = jwt.sign(
-                { user },
-                process.env.JWT_SECRET,
-                {
-                    expiresIn: '7d',
-                }.save()
-            );
+            //토큰 재발급
+            if (decoded.exp - now < 60 * 60 * 24 * 3.5) {
+                const user = await User.findById(decoded._id);
+                user.jsonWebToken = jwt.sign(
+                    { user },
+                    process.env.JWT_SECRET,
+                    {
+                        expiresIn: '7d',
+                    }.save()
+                );
+            }
+
+            //해석된 토큰 받기
+            req.body.user = {
+                userId: decoded.newUser.userId,
+                name: decoded.newUser.name,
+                _id: decoded.newUser._id,
+                favStation: decoded.newUser.favStation,
+                scrapPosts: decoded.newUser.scrapPosts,
+            };
+            next();
         }
-
-        //해석된 토큰 받기
-        res.send({ user: decoded });
-        return next();
     } catch (err) {
         console.log(err);
         return next();

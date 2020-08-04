@@ -1,30 +1,1167 @@
-{
-    "coord": [35.1145855, 129.039662],
-    "station": "서울역",
-    "stationNumber": 1,
-    "info": "서울의 중심지입니다.",
-    "lodging": [
-        {
-            "name": "1호점",
-            "phone": "010-444-4444",
-            "address": "서울시 종로구",
-            "info": "좋은곳입니다."
-        }
-    ],
-    "tourism": [
-        {
-            "name": "인사동",
-            "phone": "010-333-3334",
-            "address": "인사동 어디엔가",
-            "info": "문화를 느낄 수 있는 인사동입니다."
-        }
-    ],
-    "food": [
-        {
-            "name": "닭한마리",
-            "phone": "010-555-5555",
-            "address": "종로5가 닭한마리 골목",
-            "info": "원조가 100군데"
-        }
-    ]
-}
+[
+    {
+        "coord": [],
+        "station": "가평역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "각계역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "강경역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "강구역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "강구역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "강릉역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "강촌역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "개포역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "건천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "경산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "경주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "계룡역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "고한역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "고한역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "곡성역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "공주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "광명역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "광양역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "광주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "광주송정역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "광천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "구례구역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "구미역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "구포역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "군북역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "군산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "극락강역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "기장역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "김제역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "김천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "나주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "남성현역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "남원역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "남창역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "남춘천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "논산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "강경역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "능주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "다시역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "단양역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "대구역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "대야역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "대전역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "대천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "덕소역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "덕하역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "도계역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "도고온천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "동대구역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "동백산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "동탄역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "동해역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "동화역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "둔내역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "득량역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "마산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "마석역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "만종역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "매곡역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "명봉역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "목포역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "몽탄역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "무안역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "묵호역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "물금역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "민둥산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "밀양역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "반곡역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "반성역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "백양사역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "벌교역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "보성역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "봉화역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "부강역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "부산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "부전역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "북영천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "북천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "분천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "불국사역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "사릉역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "사북역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "사상역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "심량진역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "심례역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "삼산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "삼탄역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "삽교역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "상동역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "상봉역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "상주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "서경주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "서광주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "서대전역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "서울역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "서정리역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "서천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "석불역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "석포역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "성환역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "센텀역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "수서역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "수원역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "순천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "승부역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "신경주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "신기역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "신녕역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "신동역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "신례원역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "신림역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "신탄진역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "신태인역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "신해운대역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "심천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "쌍룡역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "안강역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "안동역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "안양역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "약목역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "양동역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "양원역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "양평역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "여수엑스포역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "여천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "연산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "영덕역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "영동역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "영등포역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "영월역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "영주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "영천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "예당역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "예미역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "예산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "예천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "오근장역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "오산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "오송역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "오수역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "옥산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "옥수역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "옥천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "온양온천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "완사역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "왕십리역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "왜관역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "용궁역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "용문역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "용산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "울산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "웅천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "원동역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "원주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "월포역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "음성역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "의성역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "이양역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "이원역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "익산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "일로역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "일신역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "임기역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "임성리역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "임실역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "장사역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "장성역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "장항역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "전의역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "전주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "점촌역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "정동진역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "정읍역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "제천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "조성역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "조치원역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "좌천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "주덕역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "중리역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "중평역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "지제역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "지탄역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "지평역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "진례역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "오대산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "진상역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "진영역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "진주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "창원역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "창원중앙역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "천안역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "천안아산역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "철암역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "청도역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "청량리역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "청리역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "청소역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "청주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "청주공항역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "청평역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "추풍령역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "춘양역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "춘천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "충주역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "탑리역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "태백역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "태화강역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "퇴계원역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "판교역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "평내호평역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "평창역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "평택역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "포항역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "풍기역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "하동역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "하양역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "한림정역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "함안역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "함열역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "함평역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "합창역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "행신역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "현동역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "호계역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "홍성역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "화명역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "화본역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "화순역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "황간역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "회방사역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "횡성역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "횡천역",
+        "info": ""
+    },
+    {
+        "coord": [],
+        "station": "효천역",
+        "info": ""
+    }
+]
