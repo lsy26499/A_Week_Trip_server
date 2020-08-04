@@ -38,7 +38,6 @@ app.use(
     })
 );
 
-//!jwt 미들웨어는 베타 테스트 중입니다.
 //jwt Middleware
 app.use(jwtParser);
 
@@ -68,7 +67,6 @@ app.use(
 
 // router
 // TODO: 컨트롤러 상단에 주석으로 설명을 작성해도 좋을 것 같습니다.
-// TODO: user가 구현이 되면 전체적으로 user 인증 검증을 해 주세요!
 /**
  * ! ex)
  * @param {id} req userId
