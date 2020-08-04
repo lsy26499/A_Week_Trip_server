@@ -16,10 +16,10 @@ const userRouter = express.Router();
 
 userRouter.post('/facebook', facebook);
 userRouter.post('/logout', logout);
-userRouter.put('/scrap/:userId/:communityId', checkedLogin, scrap);
-userRouter.get('/myPosts/:id', myPosts);
-userRouter.get('/scrap/:id', scrapList);
-userRouter.put('/favStation/:userId/:stationId', checkedLogin, favStations);
-userRouter.get('/favStationList/:id', favStationsList);
+userRouter.put('/scrap/:communityId', checkedLogin, scrap);
+userRouter.get('/myPosts', myPosts);
+userRouter.get('/scrap', scrapList);
+userRouter.put('/favStation/:stationId', checkedLogin, favStations);
+userRouter.get('/favStationList', favStationsList);
 
 export default userRouter;

@@ -25,9 +25,9 @@ communityRouter.post(
     checkCommunityForm,
     postCreate
 ); // 생성
-communityRouter.delete('/:id/:userId', checkedLogin, checkObjectId, postDelete); // 지움
+communityRouter.delete('/:id', checkedLogin, checkObjectId, postDelete); // 지움
 communityRouter.put(
-    '/:id',
+    '/',
     checkObjectId,
     checkedLogin,
     checkCommunityForm,
