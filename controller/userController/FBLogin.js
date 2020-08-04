@@ -21,7 +21,7 @@ const fbToken = (token) => {
 
 //! async await 작업
 const facebook = async (req, res) => {
-    const { fbAccessToken } = req.body;
+    const { fbAccessToken } = req.headers;
     const userInfo = await fbToken(fbAccessToken);
 
     const { name, id } = userInfo;
