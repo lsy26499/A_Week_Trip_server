@@ -56,8 +56,10 @@ const facebook = async (req, res) => {
                 }
             });
         } else if (user) {
-            console.log('user');
             user.fbToken = fbAccessToken;
+            user.jsonWebToken = jwt.sign({ user }, process.env.JWT_SECRET, {
+                expiresIn: '7d',
+            });
             user.save((err, savedUser) => {
                 res.status(201).json({
                     type: true,
@@ -76,11 +78,11 @@ const fbSignup = (id, name, fbAccessToken, next) => {
     userModel.name = name;
     userModel.fbToken = fbAccessToken;
 
-    userModel.save((err, newUser) => {
-        newUser.jsonWebToken = jwt.sign({ newUser }, process.env.JWT_SECRET, {
+    userModel.save((err, user) => {
+        user.jsonWebToken = jwt.sign({ user }, process.env.JWT_SECRET, {
             expiresIn: '7d',
         });
-        newUser.save((err, savedUser) => {
+        user.save((err, savedUser) => {
             next(err, savedUser);
         });
     });

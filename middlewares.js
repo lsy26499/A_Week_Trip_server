@@ -29,7 +29,7 @@ export const jwtParser = async (req, res, next) => {
         } else {
             //토큰 찾기
             const decoded = jwt.verify(authorization, process.env.JWT_SECRET);
-            //console.log(decoded);
+            console.log(decoded);
             const now = Math.floor(Date.now() / 1000);
 
             //토큰 재발급
@@ -46,11 +46,11 @@ export const jwtParser = async (req, res, next) => {
 
             //해석된 토큰 받기
             req.body.user = {
-                userId: decoded.newUser.userId,
-                name: decoded.newUser.name,
-                _id: decoded.newUser._id,
-                favStation: decoded.newUser.favStation,
-                scrapPosts: decoded.newUser.scrapPosts,
+                userId: decoded.user.userId,
+                name: decoded.user.name,
+                _id: decoded.user._id,
+                favStation: decoded.user.favStation,
+                scrapPosts: decoded.user.scrapPosts,
             };
             next();
         }
