@@ -2,6 +2,10 @@
 import express from 'express';
 import session from 'express-session';
 
+// Passport Setting
+import passport from 'passport';
+import passportSetup from './controller/userController/google/config/passport-setup';
+
 //middleWares
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
@@ -27,6 +31,9 @@ dotenv.config();
 // Express
 const app = express();
 const PORT = process.env.PORT;
+
+// initialize
+app.use(passport.initialize());
 
 // cookie-parser
 app.use(cookieParser());
