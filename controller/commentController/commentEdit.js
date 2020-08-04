@@ -10,6 +10,7 @@ const { ObjectId } = mongoose.Types;
  *
  * @param {ObjectID} communityId 해당 커뮤니티 오브젝트 아이디
  * @param {ObjectID} commentId 해당 댓글 오브젝트 아이디
+ * @user {userId} userId req
  *
  * @apiSuccess {Number} 201 댓글 수정 성공
  * @apiSuccessExample {json} Success-Response:
@@ -29,6 +30,7 @@ const { ObjectId } = mongoose.Types;
 
 const commentEidt = async (req, res) => {
     const { communityId, commentId } = req.params;
+    const { userId } = req.user;
 
     if (!ObjectId.isValid(commentId) || !ObjectId.isValid(communityId)) {
         res.status(400).send('잘못된 Objcet Id입니다.');
@@ -36,19 +38,23 @@ const commentEidt = async (req, res) => {
     }
 
     try {
-        const comment = await Comment.findOneAndUpdate(
-            { communityID: communityId, _id: commentId },
-            req.body,
-            {
-                new: true,
+        if (Comment.find({ userId: userId })) {
+            const comment = await Comment.findOneAndUpdate(
+                { communityID: communityId, _id: commentId },
+                req.body,
+                {
+                    new: true,
+                }
+            );
+            if (!comment) {
+                res.status(404);
+                return;
             }
-        );
-        if (!comment) {
-            res.status(404);
-            return;
+            req.body = comment;
+            res.status(201).send('댓글이 정상적으로 수정되었습니다.');
+        } else {
+            res.status(400).send('잘못된 경로입니다.');
         }
-        req.body = comment;
-        res.status(201).send('댓글이 정상적으로 수정되었습니다.');
     } catch (err) {
         console.log(err);
         res.status(500).send(err);

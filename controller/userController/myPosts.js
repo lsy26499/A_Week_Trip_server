@@ -1,25 +1,61 @@
 import Community from '../../model/community';
 
 /**
- * @param { id } req
- *  params가 ID로 들어가지 않을 수도 있음.
- * UserID 안의 Array가 들어가는 방식이라면 수정될 수 있음.
- *  params로 받지 않고 해당 유저의 posts로 조회 가능.
- * (인증 정보를 가지고?)
+ * @api {get} /user/myposts
+ * @apiDescription 내가 쓴 게시글 리스트를 요청합니다.
+ * @apiName 내가 쓴 게시글 리스트 요청
+ * @apiGroup user
+ *
+ * @user {userId} userId req
+ *
+ * @apiSuccess {Number} 201 내가 쓴 게시글 리스트 요청 성공
+ * @apiSuccessExample {json} Success-Response:
+ *       HTTP/1.1 201
+ *    [
+ *        {
+ *            "_id": "5f293c76922eef3c190c9f19",
+ *            "userId": '1121389',
+ *            "name": "이유정",
+ *            "title": "두 번째 게시글입니다",
+ *            "order": 17,
+ *            "createdAt": "2020-08-04"
+ *        },
+ *        {
+ *            "_id": "5f293b7505133c3b05fc4fde",
+ *            "userId": '1121389',
+ *            "name": "이유정",
+ *            "title": "첫 번째 게시글입니다",
+ *            "order": 16,
+ *            "createdAt": "2020-08-04"
+ *        }
+ *    ]
+ * @apiError {Number} 500 내가 쓴 게시글 리스트 요청 실패
  */
 
-// GET
 const myPosts = async (req, res) => {
-    //TODO: 진짜 userID가 들어가게 된다면 그것으로 치환.
-    //? 글을 생성했을 때 넣어 주는 게 좋을까? 아니면 api를 호출했을 때 커뮤니티를 검색하는 게 좋을까?
-    //? 일단은 후자입니다만 추후에 효율을 고려해서 다시 바뀔 수 있습니다.
-
-    const { id } = req.params;
+    const { userId } = req.user;
 
     try {
-        const myPosts = await Community.find({ userId: id }).sort({
-            postNumber: -1,
-        });
+        const myPosts = await Community.aggregate([
+            { $match: { userId: userId } },
+            {
+                $project: {
+                    _id: 1,
+                    userId: 1,
+                    name: 1,
+                    postNumber: 1,
+                    order: 1,
+                    title: 1,
+                    updatedAt: {
+                        $dateToString: {
+                            format: '%Y-%m-%d',
+                            date: '$updatedAt',
+                            timezone: 'Japan',
+                        },
+                    },
+                },
+            },
+        ]).sort({ order: -1 });
         res.status(200).send(myPosts);
     } catch (err) {
         console.log(err);

@@ -8,7 +8,8 @@ const { ObjectId } = mongoose.Types;
  * @apiName 코멘트 삭제
  * @apiGroup comment
  *
- * @param {ObjectID} commentId 해당 댓글 오브젝트 아이디
+ * @param {ObjectID} commentId req 해당 댓글 오브젝트 아이디
+ * @user {userId} userId req
  *
  * @apiSuccess {Number} 201 댓글 삭제 성공
  * @apiError {Number} 400 댓글 아이디가 없음
@@ -17,6 +18,7 @@ const { ObjectId } = mongoose.Types;
 
 const commentDelete = async (req, res) => {
     const { commentId } = req.params;
+    const { userId } = req.user;
 
     if (!ObjectId.isValid(commentId)) {
         res.status(400).send('잘못된 Objcet Id입니다.');
@@ -24,8 +26,12 @@ const commentDelete = async (req, res) => {
     }
 
     try {
-        await Comment.findByIdAndRemove(commentId);
-        res.status(200).send('성공적으로 댓글이 삭제되었습니다.');
+        if (Comment.find({ userId: userId })) {
+            await Comment.findByIdAndRemove(commentId);
+            res.status(200).send('성공적으로 댓글이 삭제되었습니다.');
+        } else {
+            res.status(400).send('잘못된 경로입니다.');
+        }
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
