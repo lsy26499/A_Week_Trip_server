@@ -3,8 +3,7 @@ const autoIncrement = require('mongoose-auto-increment');
 const Schema = mongoose.Schema;
 
 const PlanSchema = new Schema({
-    userId: { type: String, required: true },
-    //userId: { type: Schema.Types.ObjectId, ref: 'User' },
+    userId: { type: String, require: true },
     list: Schema.Types.Mixed,
 });
 

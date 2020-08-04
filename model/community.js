@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 
 const communitySchema = new Schema(
     {
-        userId: Number, // test userId
-        //userId: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+        userId: { type: String, require: true },
         //imageURL: { type: String, required: true, default: '' },
         order: { type: Number, required: true },
         name: { type: String, required: true },
