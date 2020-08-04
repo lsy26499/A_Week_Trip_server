@@ -9,7 +9,7 @@ const userSchema = new Schema({
     googleReToken: String,
     jsonWebToken: String,
     favStation: [{ type: Schema.Types.ObjectId, ref: 'Station' }],
-    scrapPosts: [{ type: Schema.Types.ObjectId, ref: 'communitys' }],
+    scrapPosts: [{ type: Schema.Types.ObjectId, ref: 'Communitys' }],
 });
 
 const User = mongoose.model('User', userSchema);
