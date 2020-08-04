@@ -19,6 +19,8 @@ import communityRouter from './routes/communityRouter';
 import commentRouter from './routes/commnetRouter';
 import bestPlanRouter from './routes/bestPlanRouter';
 
+import { jwtMiddleware } from './middlewares';
+
 // config
 dotenv.config();
 
@@ -35,6 +37,11 @@ app.use(
         extended: false,
     })
 );
+
+//!jwt 미들웨어는 베타 테스트 중입니다.
+//jwt Middleware
+app.use(jwtMiddleware);
+
 // helmet
 app.use(helmet());
 // mogran

@@ -2,9 +2,55 @@ import mongoose from 'mongoose';
 import multer from 'multer';
 import multerS3 from 'multer-s3';
 import aws from 'aws-sdk';
+import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+import User from './model/user';
+
+dotenv.config();
 
 const { ObjectId } = mongoose.Types;
 const { check, validationResult } = require('express-validator');
+
+export const checkedLogin = async (req, res, next) => {
+    const { user } = req.body;
+    if (!user) {
+        res.status(401);
+        return;
+    }
+    next();
+};
+
+//! jwt middleware는 베타 테스트 중입니다!
+export const jwtMiddleware = async (req, res, next) => {
+    const { token } = req.body;
+    if (!token) next();
+
+    try {
+        //토큰 찾기
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        console.log(decoded);
+        const now = Math.floor(Date.now() / 1000);
+
+        //토큰 재발급
+        if (decoded.exp - now < 60 * 60 * 24 * 3.5) {
+            const user = await User.findById(decoded._id);
+            user.jsonWebToken = jwt.sign(
+                { user },
+                process.env.JWT_SECRET,
+                {
+                    expiresIn: '7d',
+                }.save()
+            );
+        }
+
+        //해석된 토큰 받기
+        res.send({ user: decoded });
+        return next();
+    } catch (err) {
+        console.log(err);
+        return next();
+    }
+};
 
 //? multer
 const s3 = new aws.S3({
