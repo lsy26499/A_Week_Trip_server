@@ -66,13 +66,6 @@ app.use(
 );
 
 // router
-// TODO: 컨트롤러 상단에 주석으로 설명을 작성해도 좋을 것 같습니다.
-/**
- * ! ex)
- * @param {id} req userId
- *
- */
-
 app.use('/plan', planRouter);
 app.use('/user', userRouter);
 app.use('/station', stationRouter);
