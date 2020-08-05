@@ -10,10 +10,10 @@ const fbToken = (token) => {
     return new Promise((resolve) => {
         request(
             `https://graph.facebook.com/me?access_token=${token}`,
-            function (err, response, body) {
+            async (err, response, body) => {
                 if (err) console.log(err);
                 else {
-                    const obj = JSON.parse(body);
+                    const obj = await JSON.parse(body);
                     resolve(obj);
                 }
             }
@@ -21,21 +21,18 @@ const fbToken = (token) => {
     });
 };
 
-//! async await 작업
 const facebook = async (req, res) => {
     const { fbAccessToken } = req.body;
+
     const userInfo = await fbToken(fbAccessToken);
-
     const { name, id } = userInfo;
-
-    console.log(userInfo);
 
     const findConditionfbUserId = {
         userId: id,
         name: name,
     };
 
-    User.findOne(findConditionfbUserId).exec((err, user) => {
+    await User.findOne(findConditionfbUserId).exec((err, user) => {
         if (err) {
             res.json({
                 type: false,

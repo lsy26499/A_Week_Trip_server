@@ -11,7 +11,7 @@ dotenv.config();
 const { ObjectId } = mongoose.Types;
 const { check, validationResult } = require('express-validator');
 
-export const checkedLogin = async (req, res, next) => {
+export const checkedLogin = (req, res, next) => {
     if (!req.user) {
         res.status(401).send('로그인을 해 주세요.');
         return;
@@ -27,7 +27,7 @@ export const jwtParser = async (req, res, next) => {
         } else {
             //토큰 찾기
             const decoded = jwt.verify(authorization, process.env.JWT_SECRET);
-            console.log(decoded);
+
             //토큰 재발급
             const now = Math.floor(Date.now() / 1000);
             if (decoded.exp - now < 60 * 60 * 24 * 3.5) {
