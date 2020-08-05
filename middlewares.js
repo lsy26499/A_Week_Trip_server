@@ -12,15 +12,13 @@ const { ObjectId } = mongoose.Types;
 const { check, validationResult } = require('express-validator');
 
 export const checkedLogin = async (req, res, next) => {
-    const { user } = req.body;
-    if (!user) {
-        res.status(401);
+    if (!req.user) {
+        res.status(401).send('로그인을 해 주세요.');
         return;
     }
     next();
 };
 
-//! jwt middleware는 베타 테스트 중입니다!
 export const jwtParser = async (req, res, next) => {
     const { authorization } = req.headers;
     try {
@@ -30,9 +28,8 @@ export const jwtParser = async (req, res, next) => {
             //토큰 찾기
             const decoded = jwt.verify(authorization, process.env.JWT_SECRET);
             console.log(decoded);
-            const now = Math.floor(Date.now() / 1000);
-
             //토큰 재발급
+            const now = Math.floor(Date.now() / 1000);
             if (decoded.exp - now < 60 * 60 * 24 * 3.5) {
                 const user = await User.findById(decoded._id);
                 user.jsonWebToken = jwt.sign(
@@ -45,7 +42,7 @@ export const jwtParser = async (req, res, next) => {
             }
 
             //해석된 토큰 받기
-            req.body.user = {
+            req.user = {
                 userId: decoded.user.userId,
                 name: decoded.user.name,
                 _id: decoded.user._id,
@@ -99,8 +96,6 @@ export const checkPlanForm = async (req, res, next) => {
 };
 
 export const checkCommentForm = async (req, res, next) => {
-    // TODO: userId에 대한 유효성을 검사해 주세요.
-
     await check('secret').notEmpty().isBoolean().run(req);
     await check('name').notEmpty().isString().run(req);
     await check('comment').exists().isString().trim().run(req);
@@ -114,7 +109,6 @@ export const checkCommentForm = async (req, res, next) => {
 };
 
 export const checkCommunityForm = async (req, res, next) => {
-    //TODO: UserId에 대한 유효성 검사를 해 주세요.
     await check('name').notEmpty().isString().run(req);
     await check('title').isLength({ min: 1, max: 30 }).isString().run(req);
     await check('article').exists().run(req);
@@ -128,15 +122,9 @@ export const checkCommunityForm = async (req, res, next) => {
 };
 
 export const checkStationForm = async (req, res, next) => {
-    //TODO: station POST를 생성하세요.
-
     await check('station').notEmpty().isString().run(req);
-    await check('stationNumber').notEmpty().isNumeric().run(req);
     await check('stationInfo').notEmpty().isString().run(req);
     await check('coord').exists().run(req);
-    await check('lodging').exists().isArray().run(req);
-    await check('food').exists().isArray().run(req);
-    await check('tourism').exists().isArray().run(req);
 
     const errors = validationResult(req);
 

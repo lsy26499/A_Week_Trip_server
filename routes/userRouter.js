@@ -11,20 +11,18 @@ import {
     favStations,
     favStationsList,
 } from '../controller/userController/favoriteStation';
+import { checkedLogin } from '../middlewares';
 import authService from '../controller/userController/google/services/AuthService';
 
 const userRouter = express.Router();
 
 userRouter.post('/facebook', facebook);
-// userRouter.post('/naver', naver);
 userRouter.post('/logout', logout);
-userRouter.put('/scrap/:userId/:communityId', scrap);
-userRouter.get('/myPosts/:id', myPosts);
-userRouter.get('/scrap/:id', scrapList);
-userRouter.put('/favStation/:userId/:stationId', favStations);
-userRouter.get('/favStationList/:id', favStationsList);
-
-//TODO: userId 구현이 되면 params로 받던 id를 정리하고 진짜 userId 데이터로 리팩토링을 해 주세요.
+userRouter.put('/scrap/:communityId', checkedLogin, scrap);
+userRouter.get('/myPosts', myPosts);
+userRouter.get('/scrap', scrapList);
+userRouter.put('/favStation/:stationId', checkedLogin, favStations);
+userRouter.get('/favStationList', favStationsList);
 
 userRouter.get(
     '/google',

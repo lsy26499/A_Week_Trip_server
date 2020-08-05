@@ -1,6 +1,33 @@
 import Community from '../../model/community';
-import { post } from 'request';
 import { ObjectID } from 'mongodb';
+
+/**
+ * @api {get} /community/id
+ *
+ * @param {id} communityId req
+ *
+ * @apiDescription 해당 커뮤니티 게시글을 요청합니다.
+ * @apiName 해당 커뮤니티 게시글 요청
+ * @apiGroup community
+ *
+ * @apiSuccess {Number} 200 해당 커뮤니티 게시글 요청 성공
+ * @apiSuccessExample {json} Success-Response:
+ *       HTTP/1.1 200
+ *    [
+ *        {
+ *            "_id": "5f293b7505133c3b05fc4fde",
+ *            "view": 0,
+ *            "userId": '123782317823',
+ *            "name": "이유정",
+ *            "title": "저의 첫 번째 여행입니다",
+ *            "article": "매우 재미있었습니다",
+ *            "createdAt": "2020-08-04",
+ *            "updatedAt": "2020-08-04"
+ *        }
+ *    ]
+ *
+ * @apiError {Number} 500 해당 커뮤니티 게시글 요청 실패
+ */
 
 const postView = async (req, res) => {
     const { id } = req.params;

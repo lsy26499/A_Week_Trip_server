@@ -2,6 +2,8 @@ import User from '../../model/user';
 import jwt from 'jsonwebtoken';
 import request from 'request';
 import dotenv from 'dotenv';
+import mongoose from 'mongoose';
+
 dotenv.config();
 
 const fbToken = (token) => {
@@ -25,6 +27,8 @@ const facebook = async (req, res) => {
     const userInfo = await fbToken(fbAccessToken);
 
     const { name, id } = userInfo;
+
+    console.log(userInfo);
 
     const findConditionfbUserId = {
         userId: id,
@@ -77,7 +81,6 @@ const fbSignup = (id, name, fbAccessToken, next) => {
     userModel.userId = id;
     userModel.name = name;
     userModel.fbToken = fbAccessToken;
-
     userModel.save((err, user) => {
         user.jsonWebToken = jwt.sign({ user }, process.env.JWT_SECRET, {
             expiresIn: '7d',

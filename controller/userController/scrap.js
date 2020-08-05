@@ -1,25 +1,40 @@
 import User from '../../model/user';
 import { ObjectID } from 'mongodb';
 
+/**
+ *
+ * @api {put} /user/scrap/:communityId
+ * @apiDescription 커뮤니티 게시글을 스크랩 삽입 / 취소합니다.
+ * @apiName 커뮤니티 게시글 스크랩
+ * @apiGroup user
+ *
+ * @user {userId} userId req
+ * @param {communityId} communityID req
+ *
+ * @apiSuccess {Number} 201 커뮤니티 게시글 스크랩 삽입 / 삭제 성공
+ * @apiSuccessExample {json} Success-Response:
+ *       HTTP/1.1 201
+ *    {
+ *        "scrapPosts": [
+ *            "5f200a8538e2dd2e7ff53e78",
+ *            "5f20dd54c39d320ac7c0d675"
+ *        ],
+ *        "_id": "5f29806a386383559c78ed08",
+ *        "userId": "622716008356900",
+ *        "name": "이유정"
+ *    }
+ * @apiError {Number} 500 커뮤니티 게시글 스크랩 삽입 / 삭제 실패
+ */
+
 const scrap = async (req, res) => {
-    /*
-     * 프론트엔드: 게시글에 스크랩 버튼을 만들어 놓음
-     * 그걸 클릭하면 communityID가 API로 전송
-     * 해당 유저의 postScrap 필드에 communityID 추가 혹은 삭제
-     * (만약에 postScrap 필드에 있는 communityID가 없다면 추가 있다면 삭제)
-     * 커뮤니티 게시글이 삭제되면? => 삭제하는 API에 User.postScrap 안의 communityID도 삭제
-     */
-
-    /**
-     * @params {userId} 현재 userID // jwt user로 바뀔 가능성 다분
-     * @params {communityId} user 스키마 안의 communityID
-     */
-
-    //TODO: user 구현이 되면 진짜 user로 치환 (params로 받지 않을 수도 있음.)
-    const { userId, communityId } = req.params;
+    const { communityId } = req.params;
+    const { userId } = req.user;
     try {
         //유저 확인
-        const user = await User.findOne({ userId: userId });
+        const user = await User.findOne(
+            { userId: userId },
+            { name: 1, userId: 1, scrapPosts: 1 }
+        );
 
         //만약에 유저 안의 scrapPosts에 커뮤니티 아이디가 있으면?
         if (await User.findOne({ userId: userId, scrapPosts: communityId })) {

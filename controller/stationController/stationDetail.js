@@ -6,6 +6,38 @@ import cheerio from 'cheerio';
 import { ObjectID } from 'mongodb';
 dotenv.config();
 
+/**
+ * @api {get} /station/id
+ *
+ * @param {id} stationId req
+ *
+ * @apiDescription 해당 역 상세 정보 리스트를 요청합니다.
+ * @apiName 해당 역 상세 정보 리스트 요청
+ * @apiGroup station
+ *
+ * @apiSuccess {Number} 200 해당 역 상세 정보 리스트 요청 성공
+ * @apiSuccessExample {json} Success-Response:
+ *       HTTP/1.1 200
+ *    [
+ *        {
+ *            "stationDeatil": [
+ *                {
+ *                    "_id": "5f294ea7ff2ecf2cad5e2656",
+ *                    "station": "가평역",
+ *                    "info": "가평역입니다.",
+ *                    "lon": 37.814515,
+ *                    "lat": 127.510693
+ *                }
+ *            ],
+ *            "weather": "http://openweathermap.org/img/wn/10n@2x.png",
+ *            "lodging": [...],
+ *            "tourism": [...],
+ *            "food": [...]
+ *        }
+ *    ]
+ *
+ * @apiError {Number} 500 해당 역 상세 정보 리스트 요청 실패
+ */
 
 // 날씨 API
 const weatherIcon = (lat, lon) => {
@@ -20,7 +52,6 @@ const weatherIcon = (lat, lon) => {
                     const icon = await obj.weather[0].icon;
                     resolve(icon);
                 }
-
             }
         );
     });
@@ -55,6 +86,9 @@ const getInfo = async (region, subject) => {
                                     .text(),
                                 date: $(this).find('dd.txt_inline').text(),
                                 href: $(this).find('dl dt a').attr('href'),
+                                thumb: $(this)
+                                    .find('img.sh_blog_thumbnail')
+                                    .attr('src'),
                             };
                         });
 
@@ -69,7 +103,6 @@ const getInfo = async (region, subject) => {
     }
 };
 
-//GET
 const stationDetail = async (req, res) => {
     const { id } = req.params;
 

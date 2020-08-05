@@ -12,14 +12,27 @@ import {
     checkQuery,
     checkCommunityForm,
     uploadImage,
+    checkedLogin,
 } from '../middlewares';
 
 const communityRouter = express.Router();
 
 communityRouter.get('/search', checkQuery, postSearch); // 서치
-communityRouter.post('/', uploadImage, checkCommunityForm, postCreate); // 생성
-communityRouter.delete('/:id/:userId', checkObjectId, postDelete); // 지움
-communityRouter.put('/:id', checkObjectId, checkCommunityForm, postEdit); // 수정
+communityRouter.post(
+    '/',
+    uploadImage,
+    checkedLogin,
+    checkCommunityForm,
+    postCreate
+); // 생성
+communityRouter.delete('/:id', checkedLogin, checkObjectId, postDelete); // 지움
+communityRouter.put(
+    '/',
+    checkObjectId,
+    checkedLogin,
+    checkCommunityForm,
+    postEdit
+); // 수정
 communityRouter.get('/', postList); // 전체 보여 주기
 communityRouter.get('/:id', checkObjectId, postView); // 하나만 보여 주기
 

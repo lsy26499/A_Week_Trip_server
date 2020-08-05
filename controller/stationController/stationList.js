@@ -1,7 +1,7 @@
 import Station from '../../model/station';
 
 /**
- * @api {get} /station 역 정보 리스트 요청
+ * @api {get} /station
  * @apiDescription 역 정보 리스트를 요청합니다.
  * @apiName 역 정보 리스트 요청
  * @apiGroup station

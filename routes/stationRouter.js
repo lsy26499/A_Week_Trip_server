@@ -4,13 +4,13 @@ import stationDetail from '../controller/stationController/stationDetail';
 import stationSearch from '../controller/stationController/stationSearch';
 import stationPost from '../controller/stationController/stationPost';
 
-import { checkObjectId, checkQuery } from '../middlewares';
+import { checkObjectId, checkQuery, checkStationForm } from '../middlewares';
 
 const stationRouter = express.Router();
 
 stationRouter.get('/search', checkQuery, stationSearch);
 stationRouter.get('/', stationList);
 stationRouter.get('/:id', checkObjectId, stationDetail);
-stationRouter.post('/', stationPost);
+stationRouter.post('/', checkStationForm, stationPost);
 
 export default stationRouter;

@@ -3,19 +3,29 @@ import User from '../../model/user';
 import { ObjectID } from 'mongodb';
 
 /**
+ * @api {delete} /community/id
+ * @apiDescription 해당 게시글을 삭제합니다.
+ * @apiName 게시글 삭제
+ * @apiGroup community
  *
- * @param {userId} req User -> userId
- * @param {id} req Community -> _id
+ * @param {id} commentId req
+ * @user {userId} userId req
+ *
+ * @apiSuccess {Number} 200 게시글 삭제 성공
+ * @apiError {Number} 500 게시글 삭제 실패
  */
 
-//DELETE
 const postDelete = async (req, res) => {
-    const { id, userId } = req.params;
+    const { id } = req.params;
+    const { userId } = req.user;
 
     try {
         await Post.findByIdAndRemove(id);
 
-        const user = await User.find({ scrapPosts: ObjectID(id) });
+        const user = await User.find({
+            scrapPosts: ObjectID(id),
+            userId: userId,
+        });
 
         if (user) {
             await User.updateMany(
