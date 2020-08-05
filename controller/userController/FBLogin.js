@@ -10,10 +10,10 @@ const fbToken = (token) => {
     return new Promise((resolve) => {
         request(
             `https://graph.facebook.com/me?access_token=${token}`,
-            function (err, response, body) {
+            async (err, response, body) => {
                 if (err) console.log(err);
                 else {
-                    const obj = JSON.parse(body);
+                    const obj = await JSON.parse(body);
                     resolve(obj);
                 }
             }
@@ -21,14 +21,11 @@ const fbToken = (token) => {
     });
 };
 
-//! async await 작업
 const facebook = async (req, res) => {
     const { fbAccessToken } = req.body;
+
     const userInfo = await fbToken(fbAccessToken);
-
     const { name, id } = userInfo;
-
-    console.log(userInfo);
 
     const findConditionfbUserId = {
         userId: id,
@@ -81,7 +78,10 @@ const fbSignup = (id, name, fbAccessToken, next) => {
     userModel.userId = id;
     userModel.name = name;
     userModel.fbToken = fbAccessToken;
+    console.log(userModel);
+    console.log('---------');
     userModel.save((err, user) => {
+        console.log(user);
         user.jsonWebToken = jwt.sign({ user }, process.env.JWT_SECRET, {
             expiresIn: '7d',
         });
