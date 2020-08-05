@@ -78,7 +78,10 @@ const fbSignup = (id, name, fbAccessToken, next) => {
     userModel.userId = id;
     userModel.name = name;
     userModel.fbToken = fbAccessToken;
+    console.log(userModel);
+    console.log('---------');
     userModel.save((err, user) => {
+        console.log(user);
         user.jsonWebToken = jwt.sign({ user }, process.env.JWT_SECRET, {
             expiresIn: '7d',
         });

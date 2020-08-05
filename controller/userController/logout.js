@@ -1,7 +1,7 @@
 import User from '../../model/user';
 
 const logout = async (req, res) => {
-    const { _id } = req.body.user;
+    const { _id } = req.user;
 
     const deleteToken = { jsonWebToken: '' };
     try {
