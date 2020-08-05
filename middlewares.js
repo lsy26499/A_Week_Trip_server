@@ -123,7 +123,6 @@ export const checkCommunityForm = async (req, res, next) => {
 
 export const checkStationForm = async (req, res, next) => {
     await check('station').notEmpty().isString().run(req);
-    await check('stationInfo').notEmpty().isString().run(req);
     await check('coord').exists().run(req);
 
     const errors = validationResult(req);
