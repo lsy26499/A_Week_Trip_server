@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 const stationSchema = new Schema({
     station: { type: String, required: true },
     stationNumber: { type: Number, required: true },
-    stationInfo: { type: String, required: true },
-    coord: { any: Object },
+    coord: { any: Array },
 });
 
 stationSchema.index({ station: 'text' });
