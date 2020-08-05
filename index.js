@@ -1,6 +1,5 @@
 // Server Setting
 import express from 'express';
-import session from 'express-session';
 
 // Passport Setting
 import passport from 'passport';
@@ -58,17 +57,6 @@ app.use(
         origin: ['http://localhost:3000'],
         methods: ['GET', 'POST', 'PUT', 'DELETE'],
         credentials: true,
-    })
-);
-// Express-session
-app.use(
-    session({
-        secret: '시크릿 뜻이 뭐야? 비밀 시크릿 뜻이 뭐냐니까? 비밀',
-        resave: false,
-        saveUninitialized: true,
-        //store: new CookieStore({
-        //  mongooseConnection: mongoose.connection
-        //})
     })
 );
 
