@@ -58,7 +58,7 @@ const weatherIcon = (lat, lon) => {
 };
 
 // 웹 크롤링
-const getInfo = async (region, subject) => {
+const getInfo = (region, subject) => {
     try {
         let ulList = [];
         return new Promise((resolve) => {
@@ -103,7 +103,7 @@ const getInfo = async (region, subject) => {
     }
 };
 
-const stationDetail = async (req, res) => {
+export const stationDetail = async (req, res) => {
     const { id } = req.params;
 
     try {
@@ -148,4 +148,27 @@ const stationDetail = async (req, res) => {
     }
 };
 
-module.exports = stationDetail;
+//추천 지역 랜덤
+export const stationRandomDetail = async (req, res) => {
+    try {
+        const stationDetail = await Station.aggregate([
+            {
+                $sample: { size: 5 },
+            },
+            {
+                $project: {
+                    id: '$_id',
+                    _id: 0,
+                    region: '$station',
+                },
+            },
+        ]);
+
+        res.status(200).send(stationDetail);
+    } catch (err) {
+        console.log(err);
+        res.send(err);
+    } finally {
+        res.end();
+    }
+};
