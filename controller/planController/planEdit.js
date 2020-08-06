@@ -6,7 +6,7 @@ import Plan from '../../model/plan';
  * @apiName 플랜 수정
  * @apiGroup plan
  *
- * @user {_id} mongoDB.objectID req
+ * @params {_id} mongoDB.objectID req
  *
  * @apiSuccess {Number} 201 플랜 수정 성공
  * @apiSuccessExample {json} Success-Response:
@@ -40,7 +40,7 @@ import Plan from '../../model/plan';
  * @apiError {Number} 500 플랜 수정 실패
  */
 
-const taskEdit = async (req, res) => {
+const planEdit = async (req, res) => {
     const { _id } = req.user;
     try {
         Plan.findByIdAndUpdate(_id, req.body, (err, task) => {
@@ -53,4 +53,4 @@ const taskEdit = async (req, res) => {
     }
 };
 
-export default taskEdit;
+export default planEdit;

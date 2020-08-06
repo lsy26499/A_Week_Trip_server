@@ -6,18 +6,18 @@ import Plan from '../../model/plan';
  * @apiName 계획 삭제
  * @apiGroup plan
  *
- * @user {_id} mongoDB.ObjectID req
+ * @user {id} mongoDB.ObjectID req
  *
  * @apiSuccess {Number} 200 플랜 삭제 성공
  * @apiError {Number} 404 플랜이 존재하지 않음
  * @apiError {Number} 500 플랜 삭제 실패
  */
 
-const taskDelete = async (req, res) => {
-    const { _id } = req.user;
+const planDelete = async (req, res) => {
+    const { id } = req.params;
     try {
-        if (_id) {
-            await Plan.findByIdAndDelete(_id);
+        if (id) {
+            await Plan.findByIdAndDelete(id);
             res.status(200).send('계획을 삭제하였습니다.');
         } else res.status(404).send('계획이 존재하지 않습니다.');
     } catch (err) {
@@ -25,4 +25,4 @@ const taskDelete = async (req, res) => {
     }
 };
 
-export default taskDelete;
+export default planDelete;

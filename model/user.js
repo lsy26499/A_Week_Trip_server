@@ -5,7 +5,6 @@ const userSchema = new Schema({
     userId: { type: String, require: true },
     name: { type: String, required: true },
     googleEmail: String,
-    fbToken: String,
     jsonWebToken: String,
     favStation: [{ type: Schema.Types.ObjectId, ref: 'Station' }],
     scrapPosts: [{ type: Schema.Types.ObjectId, ref: 'Communitys' }],

@@ -40,7 +40,7 @@ const facebook = async (req, res) => {
             });
         } else if (!user) {
             console.log('유저를 찾을 수 없습니다.');
-            fbSignup(id, name, fbAccessToken, (err, savedUser) => {
+            fbSignup(id, name, (err, savedUser) => {
                 console.log(1);
                 if (err) {
                     res.json({
@@ -57,7 +57,6 @@ const facebook = async (req, res) => {
                 }
             });
         } else if (user) {
-            user.fbToken = fbAccessToken;
             user.jsonWebToken = jwt.sign({ user }, process.env.JWT_SECRET, {
                 expiresIn: '7d',
             });
@@ -73,11 +72,10 @@ const facebook = async (req, res) => {
     });
 };
 
-const fbSignup = (id, name, fbAccessToken, next) => {
+const fbSignup = (id, name, next) => {
     const userModel = new User();
     userModel.userId = id;
     userModel.name = name;
-    userModel.fbToken = fbAccessToken;
     console.log(userModel);
     console.log('---------');
     userModel.save((err, user) => {
