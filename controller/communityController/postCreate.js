@@ -33,7 +33,7 @@ import Community from '../../model/community';
 const postCreate = async (req, res) => {
     const {
         body: { userId, name, title, article },
-        //file: { location }, //!현재 S3 기준으로 코딩 중입니다.
+        file: { location },
     } = req;
 
     const postCreate = new Community({
@@ -41,7 +41,7 @@ const postCreate = async (req, res) => {
         name,
         title,
         article,
-        //imageURL: location,
+        imageURL: location,
     });
     try {
         if (userId) {
