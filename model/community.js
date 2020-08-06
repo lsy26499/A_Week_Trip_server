@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 const communitySchema = new Schema(
     {
         userId: { type: String, require: true },
-        //imageURL: { type: String, required: true, default: '' },
+        imageURL: String,
+        key: String,
         order: { type: Number, required: true },
         name: { type: String, required: true },
         title: { type: String, required: true },

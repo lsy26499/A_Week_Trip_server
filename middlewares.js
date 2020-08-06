@@ -68,9 +68,10 @@ const multerUpload = multer({
     storage: multerS3({
         s3,
         acl: 'public-read',
-        bucket: 'AWT/image',
+        bucket: 'awt-image',
         key: function (req, file, cb) {
-            let extension = path.extname(file.originalname);
+            console.log(file);
+            let extension = file.originalname;
             cb(null, Date.now().toString() + extension);
         },
         limits: { fileSize: 5 * 1024 * 1024 },
