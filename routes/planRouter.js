@@ -8,8 +8,8 @@ import { checkObjectId, checkPlanForm, checkedLogin } from '../middlewares';
 const planRouter = express.Router();
 
 planRouter.post('/', checkedLogin, checkPlanForm, planCreate);
-planRouter.put('/', checkedLogin, checkObjectId, planEdit);
-planRouter.delete('/', checkedLogin, checkObjectId, planDelete);
+planRouter.put('/:id', checkedLogin, checkObjectId, planEdit);
+planRouter.delete('/:id', checkedLogin, checkObjectId, planDelete);
 planRouter.get('/', planList);
 
 export default planRouter;
