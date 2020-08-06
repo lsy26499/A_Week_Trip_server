@@ -31,23 +31,38 @@ import Community from '../../model/community';
  */
 
 const postCreate = async (req, res) => {
-    const {
-        body: { userId, name, title, article },
-        file: { location },
-    } = req;
-
-    const postCreate = new Community({
-        userId,
-        name,
-        title,
-        article,
-        imageURL: location,
-    });
     try {
-        if (userId) {
-            const newPost = await postCreate.save();
-            res.status(200).send(newPost);
-        } else res.status(400).send('Create Failed');
+        const {
+            body: { userId, name, title, article },
+        } = req;
+
+        if (req.file) {
+            const { location, key } = req.file;
+
+            const postCreateWithImage = new Community({
+                userId,
+                name,
+                title,
+                article,
+                imageURL: location,
+                key: key,
+            });
+            if (userId) {
+                const newPost = await postCreateWithImage.save();
+                res.status(200).send(newPost);
+            } else res.status(400).send('Create Failed');
+        } else {
+            const postCreate = new Community({
+                userId,
+                name,
+                title,
+                article,
+            });
+            if (userId) {
+                const newPost = await postCreate.save();
+                res.status(200).send(newPost);
+            } else res.status(400).send('Create Failed');
+        }
     } catch (err) {
         res.status(500).send(err);
     } finally {
