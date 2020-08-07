@@ -6,7 +6,7 @@ import Post from '../../model/community';
  * @apiName 게시글 수정
  * @apiGroup community
  *
- * @user {_id} mongoDB.ObjectID req
+ * @param {_id} mongoDB.ObjectID req
  * @body req
  *
  * @apiSuccess {Number} 201 게시글 수정 성공
@@ -30,7 +30,7 @@ import Post from '../../model/community';
  */
 
 const postEdit = async (req, res) => {
-    const { _id } = req.user;
+    const { _id } = req.params;
 
     try {
         const post = await Post.findByIdAndUpdate(_id, req.body, {
