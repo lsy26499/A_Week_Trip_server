@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const googleToken = (token) => {
-    console.log(token);
     return new Promise((resolve) => {
         request(
             `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${token}`,
@@ -39,7 +38,6 @@ const googleLogin = async (req, res) => {
                 data: 'Error occured' + err,
             });
         } else if (!user) {
-            console.log('유저를 찾을 수 없습니다.');
             googleSignup(user_id, googleName, (err, savedUser) => {
                 if (err) {
                     res.json({

@@ -54,7 +54,6 @@ const postSearch = async (req, res) => {
             order: -1,
         });
         if (!community) {
-            console.log('검색 옵션이 없습니다.');
             res.status(400).send('검색 옵션이 없습니다.');
         }
         res.status(200).send(community);
