@@ -8,7 +8,7 @@ import Community from '../../model/community';
  *
  * @user {userId} userId req
  *
- * @apiSuccess {Number} 201 내가 쓴 게시글 리스트 요청 성공
+ * @apiSuccess {Number} 200 내가 쓴 게시글 리스트 요청 성공
  * @apiSuccessExample {json} Success-Response:
  *       HTTP/1.1 201
  *    [

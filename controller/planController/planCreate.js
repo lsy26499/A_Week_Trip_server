@@ -14,7 +14,7 @@ import Plan from '../../model/plan';
  *       HTTP/1.1 201
  *    {
  *        _id: ObjectId('5f228233b9611550862d9d34'),
- *        userId: '1',
+ *        userId: '189787832321',
  *        list: [
  *            {
  *                day01: {

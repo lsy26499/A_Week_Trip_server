@@ -1,7 +1,7 @@
 import Station from '../../model/station';
 
 /**
- * @api {get} /station/search 기차역 검색
+ * @api {get} /station/search
  * @apiDescription 검색된 기차역 정보를 요청합니다.
  * @apiName 기차역 검색
  * @apiGroup station

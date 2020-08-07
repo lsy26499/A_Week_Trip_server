@@ -21,7 +21,8 @@ import Post from '../../model/community';
  *            "title": "저의 첫 번째 여행입니다",
  *            "article": "매우 재미있었습니다만 수정합니다 매우 재미있었습니다",
  *            "createdAt": "2020-08-04",
- *            "updatedAt": "2020-08-04"
+ *            "updatedAt": "2020-08-04",
+ *            "imageURL": "http://aws~.png"
  *        }
  *    ]
  *

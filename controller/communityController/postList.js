@@ -2,7 +2,6 @@ import Community from '../../model/community';
 
 /**
  * @api {get} /community
- *
  * @apiDescription 커뮤니티 게시글 리스트를 요청합니다.
  * @apiName 커뮤니티 게시글 리스트 요청
  * @apiGroup community

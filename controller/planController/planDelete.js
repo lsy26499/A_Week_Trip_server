@@ -1,12 +1,12 @@
 import Plan from '../../model/plan';
 
 /**
- * @api {delete} '/plan' 플랜 삭제
+ * @api {delete} /plan
  * @apiDescription 계획을 삭제합니다.
  * @apiName 계획 삭제
  * @apiGroup plan
  *
- * @user {id} mongoDB.ObjectID req
+ * @param {id} mongoDB.ObjectID req
  *
  * @apiSuccess {Number} 200 플랜 삭제 성공
  * @apiError {Number} 404 플랜이 존재하지 않음

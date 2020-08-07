@@ -5,7 +5,7 @@ const logout = async (req, res) => {
 
     const deleteToken = { jsonWebToken: '' };
     try {
-        const user = await User.findByIdAndUpdate(_id, deleteToken, {
+        await User.findByIdAndUpdate(_id, deleteToken, {
             new: true,
         });
         res.status(201).send('로그아웃이 정상적으로 처리되었습니다.');

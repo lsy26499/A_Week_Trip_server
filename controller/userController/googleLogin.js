@@ -2,13 +2,14 @@ import User from '../../model/user';
 import jwt from 'jsonwebtoken';
 import request from 'request';
 import dotenv from 'dotenv';
+
 dotenv.config();
 
 const googleToken = (token) => {
     return new Promise((resolve) => {
         request(
             `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${token}`,
-            function (err, response, body) {
+            function (err, res, body) {
                 if (err) console.log(err);
                 else {
                     const obj = JSON.parse(body);
@@ -19,7 +20,6 @@ const googleToken = (token) => {
     });
 };
 
-//! async await 작업
 const googleLogin = async (req, res) => {
     const { google, googleName } = req.body;
     const userInfo = await googleToken(google);
