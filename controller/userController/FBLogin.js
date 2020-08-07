@@ -39,9 +39,7 @@ const facebook = async (req, res) => {
                 data: 'Error occured' + err,
             });
         } else if (!user) {
-            console.log('유저를 찾을 수 없습니다.');
             fbSignup(id, name, (err, savedUser) => {
-                console.log(1);
                 if (err) {
                     res.json({
                         type: false,
@@ -76,10 +74,7 @@ const fbSignup = (id, name, next) => {
     const userModel = new User();
     userModel.userId = id;
     userModel.name = name;
-    console.log(userModel);
-    console.log('---------');
     userModel.save((err, user) => {
-        console.log(user);
         user.jsonWebToken = jwt.sign({ user }, process.env.JWT_SECRET, {
             expiresIn: '7d',
         });

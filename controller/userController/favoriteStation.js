@@ -35,7 +35,6 @@ export const favStations = async (req, res) => {
             favStation: stationId,
         });
         if (userFav) {
-            console.log('즐겨찾기에 해당 역이 있습니다. 해당 역을 삭제합니다.');
             await User.update(
                 { userId: userId, favStation: stationId },
                 {
@@ -44,7 +43,6 @@ export const favStations = async (req, res) => {
                 { new: true }
             );
         } else {
-            console.log('즐겨찾기에 해당 역이 없습니다. 해당 역을 추가합니다.');
             await User.update(
                 { userId: userId },
                 {

@@ -30,13 +30,11 @@ const scrap = async (req, res) => {
     const { communityId } = req.params;
     const { userId } = req.user;
     try {
-        //유저 확인
         const user = await User.findOne(
             { userId: userId },
             { name: 1, userId: 1, scrapPosts: 1 }
         );
 
-        //만약에 유저 안의 scrapPosts에 커뮤니티 아이디가 있으면?
         if (await User.findOne({ userId: userId, scrapPosts: communityId })) {
             await User.update(
                 { userId: userId, scrapPosts: communityId },
@@ -45,10 +43,7 @@ const scrap = async (req, res) => {
                 },
                 { new: true }
             );
-            console.log('아이디가 있습니다. 아이디를 삭제합니다.');
         } else {
-            //커뮤니티 아이디가 없으면?
-            console.log('아이디가 없습니다. 아이디를 추가합니다.');
             await User.update(
                 { userId: userId },
                 {

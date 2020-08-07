@@ -70,7 +70,6 @@ const multerUpload = multer({
         acl: 'public-read',
         bucket: 'awt-image',
         key: function (req, file, cb) {
-            console.log(file);
             let extension = file.originalname;
             cb(null, Date.now().toString() + extension);
         },
