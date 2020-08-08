@@ -26,13 +26,7 @@ communityRouter.post(
     postCreate
 );
 communityRouter.delete('/:id', checkedLogin, checkObjectId, postDelete);
-communityRouter.put(
-    '/:id',
-    checkObjectId,
-    checkedLogin,
-    checkCommunityForm,
-    postEdit
-);
+communityRouter.put('/:id', checkObjectId, checkedLogin, postEdit);
 communityRouter.get('/', postList);
 communityRouter.get('/:id', checkObjectId, postView);
 

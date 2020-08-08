@@ -31,10 +31,9 @@ import Post from '../../model/community';
  */
 
 const postEdit = async (req, res) => {
-    const { _id } = req.params;
-
+    const { id } = req.params;
     try {
-        const post = await Post.findByIdAndUpdate(_id, req.body, {
+        const post = await Post.findByIdAndUpdate(id, req.body, {
             new: true,
         });
 
@@ -44,7 +43,7 @@ const postEdit = async (req, res) => {
         }
 
         req.body = post;
-        res.status(201).send('성공적으로 게시글이 수정되었습니다.');
+        res.status(201).send(post);
     } catch (err) {
         console.log(err);
     } finally {
