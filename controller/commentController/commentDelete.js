@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const { ObjectId } = mongoose.Types;
 
 /**
- * @api {delete} /comment/:commentId 코멘트 삭제
+ * @api {delete} /comment/:commentId
  * @apiDescription 기존의 코멘트를 삭제합니다.
  * @apiName 코멘트 삭제
  * @apiGroup comment
@@ -11,7 +11,7 @@ const { ObjectId } = mongoose.Types;
  * @param {ObjectID} commentId req 해당 댓글 오브젝트 아이디
  * @user {userId} userId req
  *
- * @apiSuccess {Number} 201 댓글 삭제 성공
+ * @apiSuccess {Number} 200 댓글 삭제 성공
  * @apiError {Number} 400 댓글 아이디가 없음
  * @apiError {Number} 500 댓글 삭제 실패
  */

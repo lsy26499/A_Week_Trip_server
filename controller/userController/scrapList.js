@@ -1,17 +1,17 @@
 import User from '../../model/user';
 
 /**
- * @api {put} /user/scrap
+ * @api {get} /user/scrap
  * @apiDescription 스크랩한 게시글의 리스트를 요청합니다.
  * @apiName 스크랩 게시글 리스트 요청
  * @apiGroup user
  *
  * @user {userId} userId req
  *
- * @apiSuccess {Number} 201 스크랩한 게시글 리스트 요청 성공
+ * @apiSuccess {Number} 200 스크랩한 게시글 리스트 요청 성공
  * @apiSuccessExample {json} Success-Response:
- * ! createdAt과 updatedAt이 ISO로 들어가기 때문에 제외하고 사용해 주세요
- *       HTTP/1.1 201
+
+ *       HTTP/1.1 200
  *    {
  *        "scrapPosts": [
  *            {

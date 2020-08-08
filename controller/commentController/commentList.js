@@ -11,7 +11,7 @@ const { ObjectId } = mongoose.Types;
  *
  * @param {ObjectID} communityId 해당 커뮤니티 오브젝트 아이디
  *
- * @apiSuccess {Number} 201 코멘트 리스트 불러오기 성공
+ * @apiSuccess {Number} 200 코멘트 리스트 불러오기 성공
  * @apiSuccessExample {json} Success-Response:
  *       HTTP/1.1 200
  *  [

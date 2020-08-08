@@ -10,7 +10,7 @@ const fbToken = (token) => {
     return new Promise((resolve) => {
         request(
             `https://graph.facebook.com/me?access_token=${token}`,
-            async (err, response, body) => {
+            async (err, res, body) => {
                 if (err) console.log(err);
                 else {
                     const obj = await JSON.parse(body);
@@ -61,9 +61,9 @@ const facebook = async (req, res) => {
             user.save((err, savedUser) => {
                 res.status(201).json({
                     type: true,
-                    userId: user.userId,
-                    name: user.name,
-                    token: user.jsonWebToken,
+                    userId: savedUser.userId,
+                    name: savedUser.name,
+                    token: savedUser.jsonWebToken,
                 });
             });
         }

@@ -25,10 +25,8 @@ export const jwtParser = async (req, res, next) => {
         if (!authorization) {
             return next();
         } else {
-            //토큰 찾기
             const decoded = jwt.verify(authorization, process.env.JWT_SECRET);
 
-            //토큰 재발급
             const now = Math.floor(Date.now() / 1000);
             if (decoded.exp - now < 60 * 60 * 24 * 3.5) {
                 const user = await User.findById(decoded._id);
@@ -41,7 +39,6 @@ export const jwtParser = async (req, res, next) => {
                 );
             }
 
-            //해석된 토큰 받기
             req.user = {
                 userId: decoded.user.userId,
                 name: decoded.user.name,
@@ -80,7 +77,6 @@ const multerUpload = multer({
 export const uploadImage = multerUpload.single('imageURL');
 
 //? middlewares
-
 export const checkPlanForm = async (req, res, next) => {
     await check('list').exists().run(req);
     const errors = validationResult(req);

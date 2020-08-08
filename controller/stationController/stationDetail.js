@@ -8,12 +8,11 @@ dotenv.config();
 
 /**
  * @api {get} /station/id
- *
- * @param {id} stationId req
- *
  * @apiDescription 해당 역 상세 정보 리스트를 요청합니다.
  * @apiName 해당 역 상세 정보 리스트 요청
  * @apiGroup station
+ *
+ * @param {id} stationId req
  *
  * @apiSuccess {Number} 200 해당 역 상세 정보 리스트 요청 성공
  * @apiSuccessExample {json} Success-Response:

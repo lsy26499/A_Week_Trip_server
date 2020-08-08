@@ -10,10 +10,10 @@ import Plan from '../../model/plan';
  *
  * @apiSuccess {Number} 200 플랜 요청 성공
  * @apiSuccessExample {json} Success-Response:
- *       HTTP/1.1 201
+ *       HTTP/1.1 200
  *    {
  *        _id: ObjectId('5f228233b9611550862d9d34'),
- *        userId: '1',
+ *        userId: '1311313312132',
  *        list: [
  *            {
  *                day01: {

@@ -2,7 +2,6 @@ import BestPlan from '../../model/bestplan';
 
 const bestPlan = async (req, res) => {
     const { num } = req.params;
-    console.log(num);
     try {
         const bestPlan = await BestPlan.find(
             {

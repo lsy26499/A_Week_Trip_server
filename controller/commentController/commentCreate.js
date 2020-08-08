@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 const { ObjectId } = mongoose.Types;
 
 /**
- * @api {post} /comment/:communityId 코멘트 생성
+ * @api {post} /comment/:communityId
  * @apiDescription 새로운 코멘트를 생성합니다.
  * @apiName 코멘트 생성
  * @apiGroup comment

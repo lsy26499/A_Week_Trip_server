@@ -3,12 +3,11 @@ import { ObjectID } from 'mongodb';
 
 /**
  * @api {get} /community/id
- *
- * @param {id} communityId req
- *
  * @apiDescription 해당 커뮤니티 게시글을 요청합니다.
  * @apiName 해당 커뮤니티 게시글 요청
  * @apiGroup community
+ *
+ * @param {id} communityId req
  *
  * @apiSuccess {Number} 200 해당 커뮤니티 게시글 요청 성공
  * @apiSuccessExample {json} Success-Response:
@@ -20,6 +19,7 @@ import { ObjectID } from 'mongodb';
  *            "userId": '123782317823',
  *            "name": "이유정",
  *            "title": "저의 첫 번째 여행입니다",
+ *            "imageURL": "http://aws~.png"
  *            "article": "매우 재미있었습니다",
  *            "createdAt": "2020-08-04",
  *            "updatedAt": "2020-08-04"
