@@ -39,35 +39,66 @@ const postView = async (req, res) => {
             view.view++;
             view.save();
         }
-
-        const postView = await Community.aggregate([
-            { $match: { _id: ObjectID(id) } },
-            {
-                $project: {
-                    view: 1,
-                    _id: 1,
-                    userId: 1,
-                    name: 1,
-                    title: 1,
-                    article: 1,
-                    createdAt: {
-                        $dateToString: {
-                            format: '%Y-%m-%d',
-                            date: '$createdAt',
-                            timezone: 'Japan',
+        if (view.imageURL) {
+            const postView = await Community.aggregate([
+                { $match: { _id: ObjectID(id) } },
+                {
+                    $project: {
+                        view: 1,
+                        _id: 1,
+                        userId: 1,
+                        name: 1,
+                        title: 1,
+                        imageURL: 1,
+                        article: 1,
+                        createdAt: {
+                            $dateToString: {
+                                format: '%Y-%m-%d',
+                                date: '$createdAt',
+                                timezone: 'Japan',
+                            },
                         },
-                    },
-                    updatedAt: {
-                        $dateToString: {
-                            format: '%Y-%m-%d',
-                            date: '$updatedAt',
-                            timezone: 'Japan',
+                        updatedAt: {
+                            $dateToString: {
+                                format: '%Y-%m-%d',
+                                date: '$updatedAt',
+                                timezone: 'Japan',
+                            },
                         },
                     },
                 },
-            },
-        ]);
-        res.status(200).send(postView);
+            ]);
+            res.status(200).send(postView);
+        } else {
+            const postView = await Community.aggregate([
+                { $match: { _id: ObjectID(id) } },
+                {
+                    $project: {
+                        view: 1,
+                        _id: 1,
+                        userId: 1,
+                        name: 1,
+                        title: 1,
+                        article: 1,
+                        createdAt: {
+                            $dateToString: {
+                                format: '%Y-%m-%d',
+                                date: '$createdAt',
+                                timezone: 'Japan',
+                            },
+                        },
+                        updatedAt: {
+                            $dateToString: {
+                                format: '%Y-%m-%d',
+                                date: '$updatedAt',
+                                timezone: 'Japan',
+                            },
+                        },
+                    },
+                },
+            ]);
+            res.status(200).send(postView);
+        }
     } catch (err) {
         res.status(500).send(err);
     } finally {
