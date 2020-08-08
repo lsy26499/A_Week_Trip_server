@@ -27,7 +27,7 @@ communityRouter.post(
 );
 communityRouter.delete('/:id', checkedLogin, checkObjectId, postDelete);
 communityRouter.put(
-    '/',
+    '/:id',
     checkObjectId,
     checkedLogin,
     checkCommunityForm,
