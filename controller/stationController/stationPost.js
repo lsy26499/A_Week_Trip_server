@@ -6,8 +6,6 @@ const stationPost = async (req, res) => {
     try {
         const stations = new Station({
             station,
-            stationNumber,
-            stationInfo,
             coord,
         }).save();
         res.status(201).send(stations);

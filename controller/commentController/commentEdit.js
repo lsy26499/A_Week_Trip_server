@@ -51,7 +51,7 @@ const commentEidt = async (req, res) => {
                 return;
             }
             req.body = comment;
-            res.status(201).send('댓글이 정상적으로 수정되었습니다.');
+            res.status(201).send(comment);
         } else {
             res.status(400).send('잘못된 경로입니다.');
         }
