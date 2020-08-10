@@ -53,9 +53,8 @@ const scrap = async (req, res) => {
             );
         }
         res.status(201).send(user);
-    } catch (error) {
-        console.log(error);
-        res.status(500).send(error);
+    } catch (err) {
+        res.status(500).send(err);
     } finally {
         res.end();
     }

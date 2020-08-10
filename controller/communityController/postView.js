@@ -12,19 +12,18 @@ import { ObjectID } from 'mongodb';
  * @apiSuccess {Number} 200 해당 커뮤니티 게시글 요청 성공
  * @apiSuccessExample {json} Success-Response:
  *       HTTP/1.1 200
- *    [
- *        {
- *            "_id": "5f293b7505133c3b05fc4fde",
- *            "view": 0,
- *            "userId": '123782317823',
- *            "name": "이유정",
- *            "title": "저의 첫 번째 여행입니다",
- *            "imageURL": "http://aws~.png"
- *            "article": "매우 재미있었습니다",
- *            "createdAt": "2020-08-04",
- *            "updatedAt": "2020-08-04"
- *        }
- *    ]
+ *
+ *  {
+ *      "_id": "5f293b7505133c3b05fc4fde",
+ *      "view": 0,
+ *      "userId": '123782317823',
+ *      "name": "이유정",
+ *      "title": "저의 첫 번째 여행입니다",
+ *      "imageURL": "http://aws~.png"
+ *      "article": "매우 재미있었습니다",
+ *      "createdAt": "2020-08-04",
+ *      "updatedAt": "2020-08-04"
+ *  }
  *
  * @apiError {Number} 500 해당 커뮤니티 게시글 요청 실패
  */
@@ -53,9 +52,7 @@ const postView = async (req, res) => {
                         article: 1,
                         createdAt: {
                             $dateToString: {
-                                format: '%Y-%m-%d',
-                                date: '$createdAt',
-                                timezone: 'Japan',
+                                format: '%Y-%m302: Foundan',
                             },
                         },
                         updatedAt: {

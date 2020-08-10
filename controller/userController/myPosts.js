@@ -11,24 +11,24 @@ import Community from '../../model/community';
  * @apiSuccess {Number} 200 내가 쓴 게시글 리스트 요청 성공
  * @apiSuccessExample {json} Success-Response:
  *       HTTP/1.1 201
- *    [
- *        {
- *            "_id": "5f293c76922eef3c190c9f19",
- *            "userId": '1121389',
- *            "name": "이유정",
- *            "title": "두 번째 게시글입니다",
- *            "order": 17,
- *            "createdAt": "2020-08-04"
- *        },
- *        {
- *            "_id": "5f293b7505133c3b05fc4fde",
- *            "userId": '1121389',
- *            "name": "이유정",
- *            "title": "첫 번째 게시글입니다",
- *            "order": 16,
- *            "createdAt": "2020-08-04"
- *        }
- *    ]
+ *
+ *   {
+ *       "_id": "5f293c76922eef3c190c9f19",
+ *       "userId": '1121389',
+ *       "name": "이유정",
+ *       "title": "두 번째 게시글입니다",
+ *       "order": 17,
+ *       "createdAt": "2020-08-04"
+ *   },
+ *   {
+ *       "_id": "5f293b7505133c3b05fc4fde",
+ *       "userId": '1121389',
+ *       "name": "이유정",
+ *       "title": "첫 번째 게시글입니다",
+ *       "order": 16,
+ *       "createdAt": "2020-08-04"
+ *   }
+ *
  * @apiError {Number} 500 내가 쓴 게시글 리스트 요청 실패
  */
 
@@ -58,7 +58,6 @@ const myPosts = async (req, res) => {
         ]).sort({ order: -1 });
         res.status(200).send(myPosts);
     } catch (err) {
-        console.log(err);
         res.status(500).send(err);
     } finally {
         res.end();

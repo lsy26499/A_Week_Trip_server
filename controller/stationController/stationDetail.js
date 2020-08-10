@@ -16,24 +16,23 @@ dotenv.config();
  *
  * @apiSuccess {Number} 200 해당 역 상세 정보 리스트 요청 성공
  * @apiSuccessExample {json} Success-Response:
- *       HTTP/1.1 200
- *    [
- *        {
- *            "stationDeatil": [
- *                {
- *                    "_id": "5f294ea7ff2ecf2cad5e2656",
- *                    "station": "가평역",
- *                    "info": "가평역입니다.",
- *                    "lon": 37.814515,
- *                    "lat": 127.510693
- *                }
- *            ],
- *            "weather": "http://openweathermap.org/img/wn/10n@2x.png",
- *            "lodging": [...],
- *            "tourism": [...],
- *            "food": [...]
- *        }
- *    ]
+ *  HTTP/1.1 200
+ *
+ *   {
+ *       "stationDeatil": [
+ *           {
+ *               "_id": "5f294ea7ff2ecf2cad5e2656",
+ *               "station": "가평역",
+ *               "info": "가평역입니다.",
+ *               "lon": 37.814515,
+ *               "lat": 127.510693
+ *           }
+ *       ],
+ *       "weather": "http://openweathermap.org/img/wn/10n@2x.png",
+ *       "lodging": [...],
+ *       "tourism": [...],
+ *       "food": [...]
+ *   }
  *
  * @apiError {Number} 500 해당 역 상세 정보 리스트 요청 실패
  */
@@ -45,7 +44,7 @@ const weatherIcon = (lat, lon) => {
             `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=` +
                 process.env.WEATHER_API_KEY,
             async function (err, response, body) {
-                if (err) console.log(err);
+                if (err) res.stauts(500).send(err);
                 else {
                     let obj = await JSON.parse(body);
                     const icon = await obj.weather[0].icon;
@@ -66,7 +65,7 @@ const getInfo = (region, subject) => {
                     region
                 )}+${encodeURIComponent(subject)}`,
                 (err, res, body) => {
-                    if (err) console.log(err);
+                    if (err) res.stauts(500).send(err);
                     else {
                         const $ = cheerio.load(body);
                         const $bodyList = $('ul.type01')
@@ -98,7 +97,7 @@ const getInfo = (region, subject) => {
             );
         });
     } catch (err) {
-        console.log(err);
+        res.status(500).send(err);
     }
 };
 
@@ -140,8 +139,7 @@ export const stationDetail = async (req, res) => {
             food: food,
         });
     } catch (err) {
-        console.log(err);
-        res.send(err);
+        res.status(500).send(err);
     } finally {
         res.end();
     }
@@ -165,8 +163,7 @@ export const stationRandomDetail = async (req, res) => {
 
         res.status(200).send(stationDetail);
     } catch (err) {
-        console.log(err);
-        res.send(err);
+        res.status(500).send(err);
     } finally {
         res.end();
     }

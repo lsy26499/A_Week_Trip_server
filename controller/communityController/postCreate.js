@@ -12,7 +12,7 @@ import Community from '../../model/community';
  * @apiSuccessExample {json} Success-Response:
  *       HTTP/1.1 201
  *  {
- *      "userId": 1,
+ *      "userId": 5f293b7505133c3b05fc4fde,
  *      "name": "이유정",
  *      "title": "게시글입니다.",
  *      "article": "첫 번째 게시글입니다.",
@@ -20,6 +20,7 @@ import Community from '../../model/community';
  *      "updatedAt": 2020-07-28T11:22:45.401+00:00,
  *      "imageURL": "http://aws~.png"
  *  }
+ *
  * @apiError {Number} 400 생성할 게시글 내용이 없음
  * @apiError {Number} 500 게시글 생성 실패
  */
@@ -43,8 +44,8 @@ const postCreate = async (req, res) => {
             });
             if (userId) {
                 const newPost = await postCreateWithImage.save();
-                res.status(200).send(newPost);
-            } else res.status(400).send('Create Failed');
+                res.status(201).send(newPost);
+            } else res.status(400).send('글 작성을 실패하였습니다.');
         } else {
             const postCreate = new Community({
                 userId,
@@ -55,7 +56,7 @@ const postCreate = async (req, res) => {
             if (userId) {
                 const newPost = await postCreate.save();
                 res.status(200).send(newPost);
-            } else res.status(400).send('Create Failed');
+            } else res.status(400).send('글 작성을 실패하였습니다.');
         }
     } catch (err) {
         res.status(500).send(err);

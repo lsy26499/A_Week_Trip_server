@@ -9,7 +9,7 @@ import Community from '../../model/community';
  * @apiSuccess {Number} 200 커뮤니티 게시글 리스트 요청 성공
  * @apiSuccessExample {json} Success-Response:
  *       HTTP/1.1 200
- *    [
+ *
  *        {
  *            "_id": "5f293c76922eef3c190c9f19",
  *            "userId": '131312312123321123',
@@ -26,7 +26,6 @@ import Community from '../../model/community';
  *            "order": 16,
  *            "updatedAt": "2020-08-05"
  *        }
- *    ]
  *
  * @apiError {Number} 500 커뮤니티 게시글 리스트 요청 실패
  */

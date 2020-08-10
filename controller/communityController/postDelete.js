@@ -15,6 +15,11 @@ import aws from 'aws-sdk';
  * @user {userId} userId req
  *
  * @apiSuccess {Number} 200 게시글 삭제 성공
+ *
+ *  {
+ *    "성공적으로 게시글이 삭제되었습니다."
+ *  }
+ *
  * @apiError {Number} 500 게시글 삭제 실패
  */
 
@@ -68,7 +73,6 @@ const postDelete = async (req, res) => {
         }
         res.status(200).send('성공적으로 게시글이 삭제되었습니다.');
     } catch (err) {
-        console.log(err);
         res.status(500).send(err);
     } finally {
         res.end();

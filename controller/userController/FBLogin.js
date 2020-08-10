@@ -2,7 +2,6 @@ import User from '../../model/user';
 import jwt from 'jsonwebtoken';
 import request from 'request';
 import dotenv from 'dotenv';
-import mongoose from 'mongoose';
 
 dotenv.config();
 
