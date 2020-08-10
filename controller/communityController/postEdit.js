@@ -38,14 +38,14 @@ const postEdit = async (req, res) => {
         });
 
         if (!post) {
-            res.status(404);
+            res.status(404).send('게시글을 찾을 수 없습니다.');
             return;
         }
 
         req.body = post;
         res.status(201).send(post);
     } catch (err) {
-        console.log(err);
+        res.status(500).send(err);
     } finally {
         res.end();
     }

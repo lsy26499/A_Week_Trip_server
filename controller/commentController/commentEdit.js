@@ -16,15 +16,16 @@ const { ObjectId } = mongoose.Types;
  * @apiSuccessExample {json} Success-Response:
  *       HTTP/1.1 201
  *  {
- *      "userId": 1,
+ *      "userId": "5f293b7505133c3b05fc4fde",
  *      "name": "이유정",
  *      "comment": "댓글 수정합니다.",
- *      "communityID": communityId,
+ *      "communityID": "7y841a7841532b2a45cj6et",
  *      "secret": true,
  *      "createdAt": 2020-07-28T11:22:45.401+00:00,
  *      "updatedAt": 2020-07-29T11:23:11.401+00:00
  *  }
  * @apiError {Number} 400 커뮤니티 아이디나 댓글 아이디가 없음
+ * @apiError {Number} 404 댓글이 없음
  * @apiError {Number} 500 댓글 수정 실패
  */
 
@@ -33,7 +34,7 @@ const commentEidt = async (req, res) => {
     const { userId } = req.user;
 
     if (!ObjectId.isValid(commentId) || !ObjectId.isValid(communityId)) {
-        res.status(400).send('잘못된 Objcet Id입니다.');
+        res.status(400).send('잘못된 아이디입니다.');
         return;
     }
 
@@ -47,7 +48,7 @@ const commentEidt = async (req, res) => {
                 }
             );
             if (!comment) {
-                res.status(404);
+                res.status(404).send('댓글이 존재하지 않습니다.');
                 return;
             }
             req.body = comment;
@@ -56,7 +57,6 @@ const commentEidt = async (req, res) => {
             res.status(400).send('잘못된 경로입니다.');
         }
     } catch (err) {
-        console.log(err);
         res.status(500).send(err);
     } finally {
         res.end();

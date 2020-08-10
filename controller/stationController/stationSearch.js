@@ -11,18 +11,18 @@ import Station from '../../model/station';
  * @apiSuccess {Number} 200 검색된 기차역 정보 요청 성공
  * @apiSuccessExample {json} Success-Response:
  *       HTTP/1.1 200
- *  [
- *      {
- *          "_id": "5f237bef2431a1087056eca5",
- *          "station": "서울역",
- *          "stationNumber": 1
- *      },
- *      {
- *          "_id": "5f237bef2431a1087056eca6",
- *          "station": "서대전",
- *          "stationNumber": 22
- *      }
- * ]
+ *
+ *  {
+ *      "_id": "5f237bef2431a1087056eca5",
+ *      "station": "서울역",
+ *      "stationNumber": 1
+ *  },
+ *  {
+ *      "_id": "5f237bef2431a1087056eca6",
+ *      "station": "서대전",
+ *      "stationNumber": 22
+ *  }
+ *
  * @apiError {Number} 500 검색된 기차역 정보 요청 실패
  */
 

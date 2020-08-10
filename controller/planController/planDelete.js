@@ -9,6 +9,11 @@ import Plan from '../../model/plan';
  * @param {id} mongoDB.ObjectID req
  *
  * @apiSuccess {Number} 200 플랜 삭제 성공
+ *
+ *  {
+ *      "계획을 삭제하였습니다."
+ *  }
+ *
  * @apiError {Number} 404 플랜이 존재하지 않음
  * @apiError {Number} 500 플랜 삭제 실패
  */

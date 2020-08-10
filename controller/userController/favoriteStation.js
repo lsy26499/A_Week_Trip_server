@@ -53,7 +53,6 @@ export const favStations = async (req, res) => {
         }
         res.status(201).send('정상적으로 처리되었습니다.');
     } catch (error) {
-        console.log(error);
         res.status(500).send(error);
     } finally {
         res.end();
@@ -107,7 +106,6 @@ export const favStationsList = async (req, res) => {
             .exec();
         res.status(200).send(favStationList);
     } catch (error) {
-        console.log(error);
         res.status(500).send(error);
     } finally {
         res.end();

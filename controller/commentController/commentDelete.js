@@ -12,7 +12,12 @@ const { ObjectId } = mongoose.Types;
  * @user {userId} userId req
  *
  * @apiSuccess {Number} 200 댓글 삭제 성공
- * @apiError {Number} 400 댓글 아이디가 없음
+ *
+ *  {
+ *      "성공적으로 댓글이 삭제되었습니다."
+ *  }
+ *
+ * @apiError {Number} 400 댓글 아이디가 없음 or 잘못된 경로
  * @apiError {Number} 500 댓글 삭제 실패
  */
 
@@ -33,7 +38,6 @@ const commentDelete = async (req, res) => {
             res.status(400).send('잘못된 경로입니다.');
         }
     } catch (err) {
-        console.log(err);
         res.status(500).send(err);
     } finally {
         res.end();

@@ -14,14 +14,15 @@ const { ObjectId } = mongoose.Types;
  * @apiSuccessExample {json} Success-Response:
  *       HTTP/1.1 201
  *  {
- *      "userId": 1,
+ *      "userId": "5f293b7505133c3b05fc4fde",
  *      "name": "이유정",
  *      "comment": "댓글입니다.",
- *      "communityID": communityId,
+ *      "communityID": 7y841a7841532b2a45cj6et,
  *      "secret": false,
  *      "createdAt": 2020-07-28T11:22:45.401+00:00,
  *      "updatedAt": 2020-07-28T11:22:45.401+00:00
  *  }
+ *
  * @apiError {Number} 400 커뮤니티 아이디가 없음
  * @apiError {Number} 500 댓글 생성 실패
  */
@@ -34,6 +35,7 @@ const commentCreate = async (req, res) => {
         res.status(400).send('잘못된 Objcet Id입니다.');
         return;
     }
+
     const comments = new Comment({
         userId,
         name,
@@ -46,7 +48,6 @@ const commentCreate = async (req, res) => {
         await comments.save();
         res.status(201).send(comments);
     } catch (err) {
-        console.log(err);
         res.status(500).send(err);
     } finally {
         res.end();
