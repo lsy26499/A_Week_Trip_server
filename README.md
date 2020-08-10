@@ -51,13 +51,19 @@
 
 # 3. 기술 스택
 
-![기술 스택](/Users/trisha/Desktop/아키텍처.png)
+<div align="center">
+   <img src="https://user-images.githubusercontent.com/61039975/89789611-c9100a80-db5b-11ea-89bb-4a311522defb.png" />
+<div>
+
+
 
 # 4. Flow Work
 
 ## Client - Server Work Flow 
 
-![Client - Server Work Flow](/Users/trisha/Desktop/워크플로우.png)
+<div align="center">
+   <img src="https://user-images.githubusercontent.com/61039975/89789790-0a081f00-db5c-11ea-945d-b1f26ce7bdb8.png" />
+   </div>
 
 
 
@@ -138,7 +144,7 @@
 <details>
 <summary>Screen Flow 펼쳐보기</summary>
 <div markdown="1">
-  <img src="/Users/trisha/Desktop/Untitled Diagram (1).png">
+  <img src="https://user-images.githubusercontent.com/61039975/89790053-5b181300-db5c-11ea-9b14-8da12083a9a6.png">
   </div>
   </details>
 </div>
