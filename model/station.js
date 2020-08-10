@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const stationSchema = new Schema({
     station: { type: String, required: true },
-    coord: { any: Array },
+    coord: Array,
 });
 
 stationSchema.plugin(autoIncrement.plugin, {
