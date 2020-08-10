@@ -2,7 +2,6 @@
 import express from 'express';
 
 //middleWares
-import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import mogran from 'morgan';
@@ -46,15 +45,6 @@ app.use(helmet());
 
 // mogran
 app.use(mogran('dev'));
-
-// cors
-app.use(
-    cors({
-        origin: ['http://172.30.1.17:19000'],
-        methods: ['GET', 'POST', 'PUT', 'DELETE'],
-        credentials: true,
-    })
-);
 
 // router
 app.use('/plan', planRouter);
