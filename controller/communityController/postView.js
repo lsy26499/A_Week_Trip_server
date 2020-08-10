@@ -52,7 +52,9 @@ const postView = async (req, res) => {
                         article: 1,
                         createdAt: {
                             $dateToString: {
-                                format: '%Y-%m302: Foundan',
+                                format: '%Y-%m-%d',
+                                date: '$updatedAt',
+                                timezone: 'Japan',
                             },
                         },
                         updatedAt: {

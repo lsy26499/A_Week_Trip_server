@@ -51,10 +51,10 @@ import Plan from '../../model/plan';
  */
 
 const planEdit = async (req, res) => {
-    const { _id } = req.user;
+    const { id } = req.params;
     try {
-        Plan.findByIdAndUpdate(_id, req.body, (err, task) => {
-            if (!_id) {
+        Plan.findByIdAndUpdate(id, req.body, (err, task) => {
+            if (!id) {
                 return res.status(404).send('수정할 계획이 없습니다.');
             } else res.status(201).send(task);
         });
